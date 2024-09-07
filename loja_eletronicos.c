@@ -77,6 +77,50 @@ void cadastrarUsuario()
     printf("Usuario cadastrado com sucesso!\n");
 }
 
+void consultarProduto() {
+    int contador = 1;
+
+    for (int i = 0; i < LINHAS; i++) {
+        for (int j = 0; j < COLUNAS; j++) {
+            if (strlen(produtos[i][j].id) > 0) {
+                printf("Produto %d:\n", contador);
+                printf("ID: %s\n", produtos[i][j].id);
+                printf("Nome: %s\n", produtos[i][j].nome);
+                printf("Status: %s\n", produtos[i][j].status);
+                printf("\n"); 
+                contador++; 
+            }
+        }
+    }
+    if (contador == 1) {
+        printf("Nenhum produto cadastrado.\n");
+    }
+}
+void cadastrarProduto() {
+    if (quantidadeProdutos >= LINHAS * COLUNAS) {
+        printf("Limite máximo de produtos atingido!\n");
+        return;
+    }
+
+    int linha = quantidadeProdutos / COLUNAS;
+    int coluna = quantidadeProdutos % COLUNAS;
+
+    printf("Digite o ID do produto (6 dígitos): ");
+    scanf("%6s", produtos[linha][coluna].id);
+    getchar(); // Limpar o buffer de entrada
+
+    printf("Digite o nome do produto: ");
+    scanf("%s", produtos[linha][coluna].nome);
+    getchar(); // Limpar o buffer de entrada
+
+    printf("Digite o status do produto: ");
+    fgets(produtos[linha][coluna].status, TAMANHO_STATUS, stdin);
+    produtos[linha][coluna].status[strcspn(produtos[linha][coluna].status, "\n")] = 0; // Remover o '\n' do final
+
+    quantidadeProdutos++;
+    printf("Produto cadastrado com sucesso!\n");
+}
+
 void Sistema()
 {
     char nome[TAMANHO_NOME];
@@ -118,10 +162,10 @@ void Sistema()
                     switch (opcao)
                     {
                     case 1:
-                        //
+                        cadastrarProduto();
                         break;
                     case 2:
-                        // consulta produto
+                        consultarProduto();
                         break;
                     case 3:
                         // excluir produto
