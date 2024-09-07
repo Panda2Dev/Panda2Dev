@@ -72,11 +72,16 @@ void cadastrarUsuario()
     printf("Digite a senha (maximo 4 digitos): "); // recebe a senha do usuario
     scanf("%4s", usuarios[quantidadeUsuarios].senha);
     getchar();
-
+    //limpa a tela
+    system("cls");
     quantidadeUsuarios++; // incrementa a variavel em 1
     printf("Usuario cadastrado com sucesso!\n");
+    printf("Pressione 'enter' para continuar");
+    getchar();
+    //limpa a tela
+    system("cls");
 }
-
+//retorna uma lista com todos os produtos
 void consultarProduto() {
     int contador = 1;
 
@@ -105,7 +110,7 @@ void cadastrarProduto() {
     int linha = quantidadeProdutos / COLUNAS;
     int coluna = quantidadeProdutos % COLUNAS;
 
-    printf("Digite o ID do produto (6 dígitos): ");
+    printf("Digite o ID do produto (6 digitos): ");
     scanf("%6s", produtos[linha][coluna].id);
     getchar(); // Limpar o buffer de entrada
 
@@ -119,6 +124,9 @@ void cadastrarProduto() {
 
     quantidadeProdutos++;
     printf("Produto cadastrado com sucesso!\n");
+    printf("Pressione 'enter' para continuar ");
+    getchar();
+    system("cls");
 }
 
 void Sistema()
@@ -128,7 +136,7 @@ void Sistema()
     int opcao;
     do
     {
-
+        system("cls");
         // recebe o nome do usuario já criado no sistema
         printf("Digite o nome do usuario: ");
         scanf("%s", nome);
@@ -138,6 +146,7 @@ void Sistema()
         printf("Digite a senha do usuario: ");
         scanf("%s", senha);
         getchar();
+        system("cls");
 
         // verifico se o nome e senha do usuario são válidos
         for (int i = 0; i < quantidadeUsuarios; i++)
@@ -181,6 +190,7 @@ void Sistema()
                             fflush(stdout);
                             sleep(1);
                         }
+                        system("cls");
                         break;
                     default:
                         printf("Digite uma opção valida.\n");
@@ -211,12 +221,12 @@ int main()
         printf("Escolha uma opcao: ");
         scanf("%d", &opcao);
         getchar();
+        system("cls");
 
         switch (opcao)
         {
         case 1:
             cadastrarUsuario();
-
             break;
         case 2:
             Sistema();
