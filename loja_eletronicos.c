@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-//funcao sleep
+// funcao sleep
 #include <unistd.h>
 
 // define tamanho das constantes
@@ -77,82 +77,87 @@ void cadastrarUsuario()
     printf("Usuario cadastrado com sucesso!\n");
 }
 
-void Sistema(){
+void Sistema()
+{
     char nome[TAMANHO_NOME];
     char senha[TAMANHO_SENHA];
     int opcao;
-    do{
-        
-    
-    //recebe o nome do usuario já criado no sistema
-    printf("Digite o nome do usuario: ");
-    scanf("%s", nome);
-    getchar();
-    
-    //recebe a senha do usuario já criado no sistema
-    printf("Digite a senha do usuario: ");
-    scanf("%s", senha);
-    getchar();
-    
-    //verifico se o nome e senha do usuario são válidos
-    for(int i = 0; i < quantidadeUsuarios; i++)
-    {   
-        //uso strcmp para fazer a comparação do nome e senha digitado pelo usuario com os contidos no sistema
-        if(strcmp(nome, usuarios[i].nome) == 0 && strcmp(senha, usuarios[i].senha) == 0)
+    do
+    {
+
+        // recebe o nome do usuario já criado no sistema
+        printf("Digite o nome do usuario: ");
+        scanf("%s", nome);
+        getchar();
+
+        // recebe a senha do usuario já criado no sistema
+        printf("Digite a senha do usuario: ");
+        scanf("%s", senha);
+        getchar();
+
+        // verifico se o nome e senha do usuario são válidos
+        for (int i = 0; i < quantidadeUsuarios; i++)
         {
-            printf("Bem vindo ao sistema da MDM Eletronica\n");
-            printf("Usuario: %s.\n", usuarios[i].nome);
-            printf("Cargo: %s.\n\n", usuarios[i].cargo);
-            do
+            // uso strcmp para fazer a comparação do nome e senha digitado pelo usuario com os contidos no sistema
+            if (strcmp(nome, usuarios[i].nome) == 0 && strcmp(senha, usuarios[i].senha) == 0)
             {
-                printf("1.Cadastro Produto\n");
-                printf("2.Consultar Produto\n");
-                printf("3.Excluir Produto\n");
-                printf("4.Atualizar Produto\n");
-                printf("5.Sair\n");
-                printf("Escolha uma opcao: ");
-                scanf("%d", &opcao);
-                getchar();
-                
-                switch(opcao)
+                printf("Bem vindo ao sistema da MDM Eletronica\n");
+                printf("Usuario: %s.\n", usuarios[i].nome);
+                printf("Cargo: %s.\n\n", usuarios[i].cargo);
+                do
                 {
-                case 1:
-                    //
-                    break;
-                case 2:
-                    //consulta produto
-                    break;
-                case 3:
-                    //excluir produto
-                    break;
-                case 4:
-                    //atualizar produto
-                    break;
-                case 5:
-                    printf("Saindo do Usuario");
-                    for(int i = 0; i < 3; i++){
-                        printf(".");
-                        fflush(stdout);
-                        sleep(1);
+                    printf("1.Cadastro Produto\n");
+                    printf("2.Consultar Produto\n");
+                    printf("3.Excluir Produto\n");
+                    printf("4.Atualizar Produto\n");
+                    printf("5.Sair\n");
+                    printf("Escolha uma opcao: ");
+                    scanf("%d", &opcao);
+                    getchar();
+
+                    switch (opcao)
+                    {
+                    case 1:
+                        //
+                        break;
+                    case 2:
+                        // consulta produto
+                        break;
+                    case 3:
+                        // excluir produto
+                        break;
+                    case 4:
+                        // atualizar produto
+                        break;
+                    case 5:
+                        printf("Saindo do Usuario");
+                        for (int i = 0; i < 3; i++)
+                        {
+                            printf(".");
+                            fflush(stdout);
+                            sleep(1);
+                        }
+                        break;
+                    default:
+                        printf("Digite uma opção valida.\n");
                     }
-                    break;
-                default:
-                    printf("Digite uma opção valida.\n");
-                }
-            }while( opcao != 5);
-            
-            return;
+                } while (opcao != 5);
+
+                return;
+            }
         }
-    }
-    printf("Usuario ou senha incorretos\n");
-    }while(1);
+        printf("Usuario ou senha incorretos\n");
+    } while (1);
 }
 
-//funcao principal
-   int main(){
+// funcao principal
+int main()
+{
     int opcao;
-    
-    do{
+
+    do
+    {
+       
         printf("\n----------------------------------\n");
         printf("MDM Eletronica - Tela inicial\n");
         printf("1. Cadastro de Usuario\n");
@@ -162,25 +167,37 @@ void Sistema(){
         printf("Escolha uma opcao: ");
         scanf("%d", &opcao);
         getchar();
-        
-        switch(opcao)
+
+        switch (opcao)
         {
         case 1:
             cadastrarUsuario();
+
             break;
         case 2:
             Sistema();
             break;
         case 3:
             printf("Saindo do Sistema");
-            for(int i = 0; i < 3; i++){
+            for (int i = 0; i < 3; i++)
+            {
                 printf(".");
                 fflush(stdout);
                 sleep(1);
             }
             break;
+        default:
+            printf("Porfavor, selecione uma opcao valida\n");
+            printf("Pressione enter para continuar\n");
+            getchar();
+            system("cls");
+            break;
         }
-    }while(opcao != 3);
-    
+        
+       
+
+    } while (opcao != 3);
+         
+
     return 0;
 }
