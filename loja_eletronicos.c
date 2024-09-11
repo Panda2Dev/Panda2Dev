@@ -92,7 +92,7 @@ void consultarProduto()
         {
             if (strlen(produtos[i][j].id) > 0)
             {
-                printf("Produto %d:\n", contador);
+                printf("\n\nProduto %d:\n", contador);
                 printf("ID: %s\n", produtos[i][j].id);
                 printf("Nome: %s\n", produtos[i][j].nome);
                 printf("Status: %s\n", produtos[i][j].status);
@@ -152,6 +152,103 @@ void cadastrarProduto()
     getchar();
     system("cls");
 }
+void excluirProduto(){
+    char id_excluir[TAMANHO_ID];
+    printf("Digite o ID do produto que deseja excluir: ");
+    scanf("%s", id_excluir);
+    getchar();
+    
+    int encontrar_id = 0;
+    for(int i = 0; i < LINHAS; i++)
+    {
+        for(int j = 0; j < COLUNAS; j++)
+        {
+            if(strcmp(produtos[i][j].id, id_excluir) == 0)
+            {
+                printf("Excluindo produto");
+                for (int i = 0; i < 3; i++)
+                {
+                    printf(".");
+                    fflush(stdout);
+                    sleep(1);
+                }
+                encontrar_id = 1;
+                produtos[i][j].id[0] = '\0';
+                produtos[i][j].nome[0] = '\0';
+                produtos[i][j].status[0] = '\0';
+                quantidadeProdutos--;
+                printf("Produto excluído!\n");
+                system("cls");
+            }
+        }
+    }
+    if(!encontrar_id)
+    {
+        printf("Produto não encontrado no sistema!\n\n");
+        excluirProduto();
+    }
+}
+void atualizarProduto(){
+    char id_atualizar[TAMANHO_ID];
+    printf("Digite o ID do produto que deseja atualizar: ");
+    scanf("%s", id_atualizar);
+    getchar();
+    
+    int encontrar_id = 0;
+    for(int i = 0; i < LINHAS; i++)
+    {
+        for(int j = 0; j < COLUNAS; j++)
+        {
+            if(strcmp(produtos[i][j].id, id_atualizar) == 0)
+            {
+                printf("Procurando produto");
+                for (int i = 0; i < 3; i++)
+                {
+                    printf(".");
+                    fflush(stdout);
+                    sleep(1);
+                }
+                printf("\nProduto encontrado");
+                encontrar_id = 1;
+                while (1)
+                {
+                    char id_digitado[100];
+                    printf("\nDigite o novo ID do produto (6 digitos): ");
+                    fgets(id_digitado, sizeof(id_digitado), stdin);
+                    id_digitado[strcspn(id_digitado, "\n")] = 0;
+            
+                    if (strlen(id_digitado) != 6)
+                    {
+                        printf("ID invalido!Digite um ID com 6 digitos. Pressione Enter para continuar...");
+                        getchar();
+                        system("cls || clear");
+                        continue; // volta ao inicio do loop para solicitar a entrada novamente
+                    }
+                    else
+                    {
+                        // copia o id digitado para o array de produtos
+                        strcpy(produtos[i][j].id, id_digitado);
+                        break; // interrompe o loop
+                    }
+                }
+    
+            printf("Digite o novo nome do produto: ");
+            scanf("%s", produtos[i][j].nome);
+            getchar(); // Limpar o buffer de entrada
+        
+            printf("Digite o novo status do produto: ");
+            fgets(produtos[i][j].status, TAMANHO_STATUS, stdin);
+            produtos[i][j].status[strcspn(produtos[i][j].status, "\n")] = 0; // Remover o '\n' do final
+            system("cls");
+            }
+        }
+    }
+    if(!encontrar_id)
+    {
+        printf("Produto não encontrado no sistema!\n\n");
+        atualizarProduto();
+    }
+}
 
 void Sistema()
 {
@@ -192,8 +289,6 @@ void Sistema()
                     scanf("%d", &opcao);
                     getchar();
 
-                
-
                     switch (opcao)
                     {
                     case 1:
@@ -203,10 +298,10 @@ void Sistema()
                         consultarProduto();
                         break;
                     case 3:
-                        // excluir produto
+                        excluirProduto();
                         break;
                     case 4:
-                        // atualizar produto
+                        atualizarProduto();
                         break;
                     case 5:
                         printf("Saindo do Usuario");
