@@ -121,7 +121,7 @@ void cadastrarProduto()
         char id_digitado[100];
         printf("Digite o ID do produto (6 digitos): ");
         fgets(id_digitado, sizeof(id_digitado), stdin);
-        id_digitado[strcspn(id_digitado, "\n")] = 0;
+        id_digitado[strcspn(id_digitado, "\n")] = 0; //ignora o "/n";
 
         if (strlen(id_digitado) != 6)
         {
