@@ -38,20 +38,58 @@ int quantidadeProdutos = 0;
 Usuario usuarios[MAX_USUARIOS];
 int quantidadeUsuarios = 0;
 
-// funcao para cadastar um novo usuario
+/**
+ * @brief funcao para cadastar um novo usuario
+ * */
 void cadastrarUsuario()
 {
+    // senha de cadastro
     char senha[TAMANHO_SENHA];
 
-    printf("\nDigite a senha de cadastro: ");
-    scanf("%s", senha);
-    getchar();
-
-    if (strcmp(senha, SENHA_CADASTRO) != 0)
+    int opcao = 0;
+    do
     {
-        printf("Senha incorreta! Retornando ao menu principal.\n");
-        return;
-    }
+        printf("\nDigite a senha de cadastro: ");
+        scanf("%s", senha);
+        getchar();
+
+        // verifica se a senha esta incorreta
+        if (strcmp(senha, SENHA_CADASTRO) != 0)
+        {
+
+            printf("Senha incorreta!\n");
+            printf("1 - Tenta novamente\n");
+            printf("2 - Retorna ao menu anterior\n");
+            printf("3 - Sair\n");
+            printf("Porfavor, selecione uma das opcoes acima: ");
+            scanf("%d", &opcao);
+            system("cls || clear");
+            getchar();
+
+            switch (opcao)
+            {
+            case 1:
+                continue; // Recomecao loop
+                break;
+            case 2:
+                return; // retorna ao meno anterior
+                break;
+            case 3:
+                printf("Saindo do Sistema");
+                for (int i = 0; i < 3; i++)
+                {
+                    printf(".");
+                    fflush(stdout);
+                    sleep(1);
+                }
+                exit(1); // sai do programa
+                break;
+            default:
+                printf("Opcao invalida! Tente novamente.\n");
+                break;
+            }
+        }
+    } while (strcmp(senha, SENHA_CADASTRO) != 0);
 
     // verifica se a quantidade de usuarios excedeu o limite estabelecido.
     if (quantidadeUsuarios >= MAX_USUARIOS)
@@ -67,7 +105,7 @@ void cadastrarUsuario()
     printf("Digite o cargo do usuario (Admin ou Vendedor): "); // recebe o cargo do usuario
     scanf("%s", usuarios[quantidadeUsuarios].cargo);
     getchar();
-    
+    // verifica se o cargo digitado eh invalido
     if (strcmp(usuarios[quantidadeUsuarios].cargo, "Admin") != 0 && strcmp(usuarios[quantidadeUsuarios].cargo, "Vendedor") != 0)
     {
         printf("Cargo Invalido. Digite 'Admin' ou 'Vendedor' ");
@@ -85,7 +123,10 @@ void cadastrarUsuario()
     // limpa a tela
     system("cls || clear");
 }
-// retorna uma lista com todos os produtos
+
+/**
+ * @brief funcao retorna uma lista com todos os produtos
+ * */
 void relatorioProduto()
 {
     int contador = 1;
@@ -125,7 +166,7 @@ void cadastrarProduto()
         char id_digitado[100];
         printf("Digite o ID do produto (6 digitos): ");
         fgets(id_digitado, sizeof(id_digitado), stdin);
-        id_digitado[strcspn(id_digitado, "\n")] = 0; //ignora o "/n";
+        id_digitado[strcspn(id_digitado, "\n")] = 0; // ignora o "/n";
 
         if (strlen(id_digitado) != 6)
         {
@@ -143,31 +184,34 @@ void cadastrarProduto()
     }
 
     printf("Digite o nome do produto: ");
-    scanf("%s", produtos[linha][coluna].nome);
-    getchar(); // Limpar o buffer de entrada
+    fgets(produtos[linha][coluna].nome, TAMANHO_NOME, stdin);
+    produtos[linha][coluna].nome[strcspn(produtos[linha][coluna].nome, "\n")] = 0; // Remover o '\n' do final
+
 
     printf("Digite o status do produto: ");
     fgets(produtos[linha][coluna].status, TAMANHO_STATUS, stdin);
     produtos[linha][coluna].status[strcspn(produtos[linha][coluna].status, "\n")] = 0; // Remover o '\n' do final
 
     quantidadeProdutos++;
-    printf("Produto cadastrado com sucesso!\n");
-    printf("Pressione 'enter' para continuar ");
+    printf("\nProduto cadastrado com sucesso!\n");
+    printf("Pressione 'enter' para continuar \n");
     getchar();
     system("cls || clear");
+    
 }
-void excluirProduto(){
+void excluirProduto()
+{
     char id_excluir[TAMANHO_ID];
     printf("Digite o ID do produto que deseja excluir: ");
     scanf("%s", id_excluir);
     getchar();
-    
+
     int encontrar_id = 0;
-    for(int i = 0; i < LINHAS; i++)
+    for (int i = 0; i < LINHAS; i++)
     {
-        for(int j = 0; j < COLUNAS; j++)
+        for (int j = 0; j < COLUNAS; j++)
         {
-            if(strcmp(produtos[i][j].id, id_excluir) == 0)
+            if (strcmp(produtos[i][j].id, id_excluir) == 0)
             {
                 printf("Excluindo produto");
                 for (int i = 0; i < 3; i++)
@@ -186,24 +230,25 @@ void excluirProduto(){
             }
         }
     }
-    if(!encontrar_id)
+    if (!encontrar_id)
     {
         printf("Produto não encontrado no sistema!\n\n");
         excluirProduto();
     }
 }
-void atualizarProduto(){
+void atualizarProduto()
+{
     char id_atualizar[TAMANHO_ID];
     printf("Digite o ID do produto que deseja atualizar: ");
     scanf("%s", id_atualizar);
     getchar();
-    
+
     int encontrar_id = 0;
-    for(int i = 0; i < LINHAS; i++)
+    for (int i = 0; i < LINHAS; i++)
     {
-        for(int j = 0; j < COLUNAS; j++)
+        for (int j = 0; j < COLUNAS; j++)
         {
-            if(strcmp(produtos[i][j].id, id_atualizar) == 0)
+            if (strcmp(produtos[i][j].id, id_atualizar) == 0)
             {
                 printf("Procurando produto");
                 for (int i = 0; i < 3; i++)
@@ -220,7 +265,7 @@ void atualizarProduto(){
                     printf("\nDigite o novo ID do produto (6 digitos): ");
                     fgets(id_digitado, sizeof(id_digitado), stdin);
                     id_digitado[strcspn(id_digitado, "\n")] = 0;
-            
+
                     if (strlen(id_digitado) != 6)
                     {
                         printf("ID invalido!Digite um ID com 6 digitos. Pressione Enter para continuar...");
@@ -235,37 +280,38 @@ void atualizarProduto(){
                         break; // interrompe o loop
                     }
                 }
-    
-            printf("Digite o novo nome do produto: ");
-            scanf("%s", produtos[i][j].nome);
-            getchar(); // Limpar o buffer de entrada
-        
-            printf("Digite o novo status do produto: ");
-            fgets(produtos[i][j].status, TAMANHO_STATUS, stdin);
-            produtos[i][j].status[strcspn(produtos[i][j].status, "\n")] = 0; // Remover o '\n' do final
-            system("cls || clear");
+
+                printf("Digite o novo nome do produto: ");
+                scanf("%s", produtos[i][j].nome);
+                getchar(); // Limpar o buffer de entrada
+
+                printf("Digite o novo status do produto: ");
+                fgets(produtos[i][j].status, TAMANHO_STATUS, stdin);
+                produtos[i][j].status[strcspn(produtos[i][j].status, "\n")] = 0; // Remover o '\n' do final
+                system("cls || clear");
             }
         }
     }
-    if(!encontrar_id)
+    if (!encontrar_id)
     {
         printf("Produto não encontrado no sistema!\n\n");
         atualizarProduto();
     }
 }
 
-void consultaId(){
+void consultaId()
+{
     char id_consulta[TAMANHO_ID];
     printf("Digite o ID para consulta de produto: ");
     scanf("%s", id_consulta);
     getchar();
-    
+
     int encontrar_id = 0;
-    for(int i = 0; i < LINHAS; i++)
+    for (int i = 0; i < LINHAS; i++)
     {
-        for(int j = 0; j < COLUNAS; j++)
+        for (int j = 0; j < COLUNAS; j++)
         {
-            if(strcmp(produtos[i][j].id, id_consulta) == 0)
+            if (strcmp(produtos[i][j].id, id_consulta) == 0)
             {
                 printf("Procurando produto");
                 for (int i = 0; i < 3; i++)
@@ -288,7 +334,7 @@ void consultaId(){
             }
         }
     }
-    if(!encontrar_id)
+    if (!encontrar_id)
     {
         printf("Produto não encontrado no sistema!\n\n");
         consultaId();
@@ -316,6 +362,7 @@ void Sistema()
         system("cls || clear");
 
         // verifico se o nome e senha do usuario são válidos
+        int usuarioEncontrado = 0;
         for (int i = 0; i < quantidadeUsuarios; i++)
         {
             // uso strcmp para fazer a comparação do nome e senha digitado pelo usuario com os contidos no sistema
@@ -325,6 +372,7 @@ void Sistema()
                 printf("Bem vindo ao sistema da MDM Eletronica\n");
                 printf("Usuario: %s.\n", usuarios[i].nome);
                 printf("Cargo: %s.\n\n", usuarios[i].cargo);
+                usuarioEncontrado = 1;
                 do
                 {
                     if (strcmp(cargo, "Admin") == 0)
@@ -335,8 +383,8 @@ void Sistema()
                         printf("4.Atualizar Produto\n");
                         printf("5.Sair\n");
                         printf("Escolha uma opcao: ");
-                        
-                    }else if (strcmp(cargo, "Vendedor") == 0)
+                    }
+                    else if (strcmp(cargo, "Vendedor") == 0)
                     {
                         printf("1.Consultar Produto\n");
                         printf("2.Relatorio dos Produtos\n");
@@ -345,7 +393,7 @@ void Sistema()
                     }
                     scanf("%d", &opcao);
                     getchar();
-                    
+
                     if (strcmp(cargo, "Admin") == 0)
                     {
                         switch (opcao)
@@ -375,7 +423,8 @@ void Sistema()
                         default:
                             printf("Digite uma opção valida.\n");
                         }
-                    }else if (strcmp(cargo, "Vendedor") == 0)
+                    }
+                    else if (strcmp(cargo, "Vendedor") == 0)
                     {
                         switch (opcao)
                         {
@@ -404,7 +453,43 @@ void Sistema()
                 return;
             }
         }
-        printf("Usuario ou senha incorretos\n");
+        // caso o usuario nao tenha sido encontrado
+        if (!usuarioEncontrado)
+        {
+
+            printf("Usuario ou senha incorretos\n");
+            printf("1 - Tentar Novamente\n");
+            printf("2 - voltar ao Menu anterior\n");
+            printf("3 - sair\n");
+            printf("Selecione uma das opcoes acima: ");
+            scanf("%d", &opcao);
+            getchar();
+
+            switch (opcao)
+            {
+            case 1:
+                continue; // volta para o inicio do loop
+                break;
+
+            case 2:
+                main(); // retorna ao menu anterior
+                break;
+            case 3:
+                printf("Saindo do Sistema");
+                for (int i = 0; i < 3; i++)
+                {
+                    printf(".");
+                    fflush(stdout);
+                    sleep(1);
+                }
+                exit(1); // encerra a execucao do programa
+
+            default:
+                printf("Porfavor, selecione uma opcao valida\n");
+                break;
+            }
+        }
+
     } while (1);
 }
 
@@ -443,6 +528,7 @@ int main()
                 fflush(stdout);
                 sleep(1);
             }
+            exit(1); // encerrar o programa
             break;
         default:
             printf("Porfavor, selecione uma opcao valida\n");
