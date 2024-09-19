@@ -111,17 +111,27 @@ void cadastrarUsuario()
         printf("Cargo Invalido. Digite 'Admin' ou 'Vendedor' ");
         return cadastrarUsuario();
     }
+
     printf("Digite a senha (maximo 4 digitos): "); // recebe a senha do usuario
     scanf("%4s", usuarios[quantidadeUsuarios].senha);
     getchar();
-    // limpa a tela
-    system("cls || clear");
-    quantidadeUsuarios++; // incrementa a variavel em 1
-    printf("Usuario cadastrado com sucesso!\n");
-    printf("Pressione 'enter' para continuar");
-    getchar();
-    // limpa a tela
-    system("cls || clear");
+
+    if (strlen(usuarios[quantidadeUsuarios].senha) > 4)
+    {
+        printf("A senha deve ter no máximo 4 digitos");
+        return;
+    }
+    else
+    {
+        // limpa a tela
+        system("cls || clear");
+        quantidadeUsuarios++; // incrementa a variavel em 1
+        printf("Usuario cadastrado com sucesso!\n");
+        printf("Pressione 'enter' para continuar");
+        getchar();
+        // limpa a tela
+        system("cls || clear");
+    }
 }
 
 /**
@@ -187,7 +197,6 @@ void cadastrarProduto()
     fgets(produtos[linha][coluna].nome, TAMANHO_NOME, stdin);
     produtos[linha][coluna].nome[strcspn(produtos[linha][coluna].nome, "\n")] = 0; // Remover o '\n' do final
 
-
     printf("Digite o status do produto: ");
     fgets(produtos[linha][coluna].status, TAMANHO_STATUS, stdin);
     produtos[linha][coluna].status[strcspn(produtos[linha][coluna].status, "\n")] = 0; // Remover o '\n' do final
@@ -197,7 +206,6 @@ void cadastrarProduto()
     printf("Pressione 'enter' para continuar \n");
     getchar();
     system("cls || clear");
-    
 }
 void excluirProduto()
 {
@@ -483,6 +491,7 @@ void Sistema()
                     sleep(1);
                 }
                 exit(1); // encerra a execucao do programa
+                break;
 
             default:
                 printf("Porfavor, selecione uma opcao valida\n");
