@@ -1,7 +1,9 @@
 /**
  * @version 1.0
  * @date 19/09/2024
- * 
+ * @author Mateus Santos de jesus
+ * @author David Santos Pereira
+ * @author Marcos vinícius Santos Reis
  */
 #include <stdio.h>  // biblioteca Entrada e Saída PADRÃO
 #include <stdlib.h> // biblioteca Alocar memória
@@ -9,30 +11,35 @@
 #include <unistd.h> // biblioteca controle de tempo(sleep)
 
 // define tamanho das constantes
-#define MAX_USUARIOS 10
-#define TAMANHO_NOME 30
-#define TAMANHO_SENHA 5
-#define LINHAS 5
-#define COLUNAS 3
-#define TAMANHO_ID 7
-#define TAMANHO_STATUS 20
+#define MAX_USUARIOS 10 /**< Define o máximo de usuarios */
+#define TAMANHO_NOME 30 /**<Define o tamanho do nome */
+#define TAMANHO_SENHA 5/**< Define o tamanho máximo da senha */
+#define LINHAS 5 /**<Define tamanho das linhas */
+#define COLUNAS 3 /**< Define o tamanho das colunas */
+#define TAMANHO_ID 7 /**< Define o tamanho máximo do id */
+#define TAMANHO_STATUS 20 /**< Define o tamanho máximo do status */
 
 // senha para cadastro de novos usuários
 const char SENHA_CADASTRO[] = "2025";
-// struct produto
+/**
+ * @struct Produto
+ * @brief Armazena informações sobre um produto*/ 
 typedef struct
 {
-    char id[TAMANHO_ID]; 
-    char nome[TAMANHO_NOME];
-    char status[TAMANHO_STATUS];
+    char id[TAMANHO_ID];  /**<Id do produto. */
+    char nome[TAMANHO_NOME];/**<Nome do produto. */
+    char status[TAMANHO_STATUS];/**<Status do produto. */
 } Produto;
 
-// struct usuario
+/**
+ * @struct Usuario
+ * @brief Armazena informações sobre um usuário
+ */
 typedef struct
 {
-    char nome[TAMANHO_NOME];
-    char cargo[TAMANHO_NOME];
-    char senha[TAMANHO_SENHA];
+    char nome[TAMANHO_NOME];/**<Nome do usuario. */
+    char cargo[TAMANHO_NOME];/**<Cargo do usuario. */
+    char senha[TAMANHO_SENHA];/**<Senha do usuario. */
 } Usuario;
 
 // cria um array para armazena os produtos
@@ -50,7 +57,7 @@ void cadastrarUsuario()
 {
     // senha de cadastro
     char senha[TAMANHO_SENHA];
-
+    //armazena a opção selecionada
     int opcao = 0;
     do // laço do while para continuidade da funcao cadastrarUsuario
     {
@@ -126,17 +133,17 @@ void cadastrarUsuario()
             
         }
         else
-        {
+        {   //verifica se a quantidade usuarios ainda não excedeu o limite máximo
             if (quantidadeUsuarios < MAX_USUARIOS)
             {
                 strncpy(usuarios[quantidadeUsuarios].senha, senha_usuario, TAMANHO_SENHA);
                 usuarios[quantidadeUsuarios].senha[TAMANHO_SENHA - 1] = '\0'; // Garante que a string estah terminada
                 quantidadeUsuarios++;                                         // incrementa a variavel em 1
-                printf("Usuario cadastrado com sucesso!\n");
+                printf("Usuario cadastrado com sucesso!\n"); //exibe mensagem de sucesso.
                 printf("Pressione 'enter' para continuar");
                 getchar();
                 getchar();
-                system("cls || clear");
+                system("cls || clear");//limpa a tela
                 
             }
             else
@@ -144,7 +151,7 @@ void cadastrarUsuario()
                 printf("numero maximo de usuarios atingido");
             }
         }
-    } while (strlen(senha_usuario) > 4);
+    } while (strlen(senha_usuario) > 4); //repete o loop enquanto a senha digitada for maior que 4
 }
 
 /**
