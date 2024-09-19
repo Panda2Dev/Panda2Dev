@@ -1,3 +1,8 @@
+/**
+ * @version 1.0
+ * @date 19/09/2024
+ * 
+ */
 #include <stdio.h>  // biblioteca Entrada e Saída PADRÃO
 #include <stdlib.h> // biblioteca Alocar memória
 #include <string.h> // biblioteca manipular Strings
@@ -17,7 +22,7 @@ const char SENHA_CADASTRO[] = "2025";
 // struct produto
 typedef struct
 {
-    char id[TAMANHO_ID];
+    char id[TAMANHO_ID]; 
     char nome[TAMANHO_NOME];
     char status[TAMANHO_STATUS];
 } Produto;
@@ -38,7 +43,9 @@ int quantidadeProdutos = 0;        // contador qtd produtos
 Usuario usuarios[MAX_USUARIOS];
 int quantidadeUsuarios = 0; // contador qtd usuario
 
-// funcao para cadastar um novo usuario
+/** 
+ * @brief funcao para cadastar um novo usuario
+ *  */
 void cadastrarUsuario()
 {
     // senha de cadastro
@@ -140,7 +147,8 @@ void cadastrarUsuario()
     } while (strlen(senha_usuario) > 4);
 }
 
-// brief funcao retorna uma lista com todos os produtos
+/**
+ * @brief funcao retorna uma lista com todos os produtos  */ 
 void relatorioProduto()
 {
     int contador = 1;
@@ -165,7 +173,8 @@ void relatorioProduto()
         printf("Nenhum produto cadastrado.\n");
     }
 }
-// funcao para cadastrar os procutos
+/**
+ * @brief  função para cadastrar os produtos*/
 void cadastrarProduto()
 {
     // verifica se o limite de produtos foi atingido
@@ -215,7 +224,8 @@ void cadastrarProduto()
     getchar();
     system("cls || clear");
 }
-// função para fazer a exclusão de produtos
+/**
+ * @brief  função para fazer a exclusão de produtos*/ 
 void excluirProduto()
 {
     char id_excluir[TAMANHO_ID];
@@ -257,7 +267,8 @@ void excluirProduto()
         excluirProduto(); // retorna para o começo
     }
 }
-// função para atualizar os produtos existentes no sistema
+/**
+ * @brief  função para atualizar os produtos existentes no sistema*/ 
 void atualizarProduto()
 {
     char id_atualizar[TAMANHO_ID];
@@ -324,7 +335,8 @@ void atualizarProduto()
         atualizarProduto();
     }
 }
-// função para consultar os IDs de produto contidos no sistema
+/**
+ * @brief função para consultar os IDs de produto contidos no sistema */ 
 void consultaId()
 {
     char id_consulta[TAMANHO_ID];
@@ -369,11 +381,13 @@ void consultaId()
         consultaId();
     }
 }
-// função para entrar no sistema da MDM Eletronica
+/**
+ * @brief  função para entrar no sistema da MDM Eletrônica */ 
 void Sistema()
 {
     char nome[TAMANHO_NOME];
     char senha[TAMANHO_SENHA];
+    //armazena a opção a ser selecionada
     int opcao;
     char cargo[TAMANHO_NOME];
     do // do while para continuidade da execução do código principal
