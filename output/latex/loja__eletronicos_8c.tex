@@ -1,0 +1,764 @@
+\doxysection{Referência do Arquivo C\+:/\+Users/\+Mateus/\+Desktop/\+Loja\+\_\+eletrônicos/\+Panda2\+Dev/loja\+\_\+eletronicos.c}
+\hypertarget{loja__eletronicos_8c}{}\label{loja__eletronicos_8c}\index{C:/Users/Mateus/Desktop/Loja\_eletrônicos/Panda2Dev/loja\_eletronicos.c@{C:/Users/Mateus/Desktop/Loja\_eletrônicos/Panda2Dev/loja\_eletronicos.c}}
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$unistd.\+h$>$}\newline
+\doxysubsubsection*{Componentes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_produto}{Produto}}
+\begin{DoxyCompactList}\small\item\em Armazena informações sobre um produto. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{struct_usuario}{Usuario}}
+\begin{DoxyCompactList}\small\item\em Armazena informações sobre um usuário. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Definições e Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{loja__eletronicos_8c_a0145df6bb6266e199e863ed5a9b0ac79}{MAX\+\_\+\+USUARIOS}}~10
+\item 
+\#define \mbox{\hyperlink{loja__eletronicos_8c_a9507b8b6e808576cd3220d584c1f180b}{TAMANHO\+\_\+\+NOME}}~30
+\item 
+\#define \mbox{\hyperlink{loja__eletronicos_8c_aec83cc5ac73b2bc5e472624b9e4be500}{TAMANHO\+\_\+\+SENHA}}
+\item 
+\#define \mbox{\hyperlink{loja__eletronicos_8c_a4533ea3a2d1c452fc858e74ee999ec2a}{LINHAS}}~5
+\item 
+\#define \mbox{\hyperlink{loja__eletronicos_8c_a9db37cd75be1d2f3cfc2703673801cb0}{COLUNAS}}~3
+\item 
+\#define \mbox{\hyperlink{loja__eletronicos_8c_ae661f538744a20062e7d556fd3a63086}{TAMANHO\+\_\+\+ID}}~7
+\item 
+\#define \mbox{\hyperlink{loja__eletronicos_8c_a89d0ad7ad0799834e44374eea7d178ec}{TAMANHO\+\_\+\+STATUS}}~20
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Funções}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{loja__eletronicos_8c_ae22d9c3570c1c575e0835e347301eb46}{cadastrar\+Usuario}} ()
+\begin{DoxyCompactList}\small\item\em funcao para cadastar um novo usuario \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{loja__eletronicos_8c_ac63d3f9787c743ef2c5e26d4ee94a927}{relatorio\+Produto}} ()
+\begin{DoxyCompactList}\small\item\em funcao retorna uma lista com todos os produtos ~\newline
+ \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{loja__eletronicos_8c_a67a39725ab7392789a90663bbae39ce8}{cadastrar\+Produto}} ()
+\begin{DoxyCompactList}\small\item\em função para cadastrar os produtos \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{loja__eletronicos_8c_a68f3e3896fd5fcbfcba8584a3f8226d2}{excluir\+Produto}} ()
+\begin{DoxyCompactList}\small\item\em função para fazer a exclusão de produtos \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{loja__eletronicos_8c_a29554155b25d194765f47054daf27f52}{atualizar\+Produto}} ()
+\begin{DoxyCompactList}\small\item\em função para atualizar os produtos existentes no sistema \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{loja__eletronicos_8c_acffdc8717b53fde038fdac53a3186643}{consulta\+Id}} ()
+\begin{DoxyCompactList}\small\item\em função para consultar os IDs de produto contidos no sistema \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{loja__eletronicos_8c_adcfa6656662be613b1d7cbc8eb58ae7c}{Sistema}} ()
+\begin{DoxyCompactList}\small\item\em função para entrar no sistema da MDM Eletrônica \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{loja__eletronicos_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variáveis}
+\begin{DoxyCompactItemize}
+\item 
+const char \mbox{\hyperlink{loja__eletronicos_8c_a9ff26672e287ce96f1a86b525fa71e47}{SENHA\+\_\+\+CADASTRO}} \mbox{[}$\,$\mbox{]} = "{}2025"{}
+\item 
+\mbox{\hyperlink{struct_produto}{Produto}} \mbox{\hyperlink{loja__eletronicos_8c_a5107cc7e1b66823cf8dd17851a23e583}{produtos}} \mbox{[}\mbox{\hyperlink{loja__eletronicos_8c_a4533ea3a2d1c452fc858e74ee999ec2a}{LINHAS}}\mbox{]}\mbox{[}\mbox{\hyperlink{loja__eletronicos_8c_a9db37cd75be1d2f3cfc2703673801cb0}{COLUNAS}}\mbox{]}
+\item 
+int \mbox{\hyperlink{loja__eletronicos_8c_a455f97001e0b23b903200dba40bd7e86}{quantidade\+Produtos}} = 0
+\item 
+\mbox{\hyperlink{struct_usuario}{Usuario}} \mbox{\hyperlink{loja__eletronicos_8c_a1d063905adcef00b45f3155285d0cba6}{usuarios}} \mbox{[}\mbox{\hyperlink{loja__eletronicos_8c_a0145df6bb6266e199e863ed5a9b0ac79}{MAX\+\_\+\+USUARIOS}}\mbox{]}
+\item 
+int \mbox{\hyperlink{loja__eletronicos_8c_acab5f3c0c64cd6d366afcb394f4312eb}{quantidade\+Usuarios}} = 0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Definições e macros}
+\Hypertarget{loja__eletronicos_8c_a9db37cd75be1d2f3cfc2703673801cb0}\index{loja\_eletronicos.c@{loja\_eletronicos.c}!COLUNAS@{COLUNAS}}
+\index{COLUNAS@{COLUNAS}!loja\_eletronicos.c@{loja\_eletronicos.c}}
+\doxysubsubsection{\texorpdfstring{COLUNAS}{COLUNAS}}
+{\footnotesize\ttfamily \label{loja__eletronicos_8c_a9db37cd75be1d2f3cfc2703673801cb0} 
+\#define COLUNAS~3}
+
+Define o tamanho das colunas \Hypertarget{loja__eletronicos_8c_a4533ea3a2d1c452fc858e74ee999ec2a}\index{loja\_eletronicos.c@{loja\_eletronicos.c}!LINHAS@{LINHAS}}
+\index{LINHAS@{LINHAS}!loja\_eletronicos.c@{loja\_eletronicos.c}}
+\doxysubsubsection{\texorpdfstring{LINHAS}{LINHAS}}
+{\footnotesize\ttfamily \label{loja__eletronicos_8c_a4533ea3a2d1c452fc858e74ee999ec2a} 
+\#define LINHAS~5}
+
+Define tamanho das linhas \Hypertarget{loja__eletronicos_8c_a0145df6bb6266e199e863ed5a9b0ac79}\index{loja\_eletronicos.c@{loja\_eletronicos.c}!MAX\_USUARIOS@{MAX\_USUARIOS}}
+\index{MAX\_USUARIOS@{MAX\_USUARIOS}!loja\_eletronicos.c@{loja\_eletronicos.c}}
+\doxysubsubsection{\texorpdfstring{MAX\_USUARIOS}{MAX\_USUARIOS}}
+{\footnotesize\ttfamily \label{loja__eletronicos_8c_a0145df6bb6266e199e863ed5a9b0ac79} 
+\#define MAX\+\_\+\+USUARIOS~10}
+
+\begin{DoxyVersion}{Versão}
+1.\+0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Data}
+19/09/2024 
+\end{DoxyDate}
+\begin{DoxyAuthor}{Autor}
+Mateus Santos de jesus 
+
+David Santos Pereira 
+
+Marcos vinícius Santos Reis Define o máximo de usuarios 
+\end{DoxyAuthor}
+\Hypertarget{loja__eletronicos_8c_ae661f538744a20062e7d556fd3a63086}\index{loja\_eletronicos.c@{loja\_eletronicos.c}!TAMANHO\_ID@{TAMANHO\_ID}}
+\index{TAMANHO\_ID@{TAMANHO\_ID}!loja\_eletronicos.c@{loja\_eletronicos.c}}
+\doxysubsubsection{\texorpdfstring{TAMANHO\_ID}{TAMANHO\_ID}}
+{\footnotesize\ttfamily \label{loja__eletronicos_8c_ae661f538744a20062e7d556fd3a63086} 
+\#define TAMANHO\+\_\+\+ID~7}
+
+Define o tamanho máximo do id \Hypertarget{loja__eletronicos_8c_a9507b8b6e808576cd3220d584c1f180b}\index{loja\_eletronicos.c@{loja\_eletronicos.c}!TAMANHO\_NOME@{TAMANHO\_NOME}}
+\index{TAMANHO\_NOME@{TAMANHO\_NOME}!loja\_eletronicos.c@{loja\_eletronicos.c}}
+\doxysubsubsection{\texorpdfstring{TAMANHO\_NOME}{TAMANHO\_NOME}}
+{\footnotesize\ttfamily \label{loja__eletronicos_8c_a9507b8b6e808576cd3220d584c1f180b} 
+\#define TAMANHO\+\_\+\+NOME~30}
+
+Define o tamanho do nome \Hypertarget{loja__eletronicos_8c_aec83cc5ac73b2bc5e472624b9e4be500}\index{loja\_eletronicos.c@{loja\_eletronicos.c}!TAMANHO\_SENHA@{TAMANHO\_SENHA}}
+\index{TAMANHO\_SENHA@{TAMANHO\_SENHA}!loja\_eletronicos.c@{loja\_eletronicos.c}}
+\doxysubsubsection{\texorpdfstring{TAMANHO\_SENHA}{TAMANHO\_SENHA}}
+{\footnotesize\ttfamily \label{loja__eletronicos_8c_aec83cc5ac73b2bc5e472624b9e4be500} 
+\#define TAMANHO\+\_\+\+SENHA}
+
+Define o tamanho máximo da senha \Hypertarget{loja__eletronicos_8c_a89d0ad7ad0799834e44374eea7d178ec}\index{loja\_eletronicos.c@{loja\_eletronicos.c}!TAMANHO\_STATUS@{TAMANHO\_STATUS}}
+\index{TAMANHO\_STATUS@{TAMANHO\_STATUS}!loja\_eletronicos.c@{loja\_eletronicos.c}}
+\doxysubsubsection{\texorpdfstring{TAMANHO\_STATUS}{TAMANHO\_STATUS}}
+{\footnotesize\ttfamily \label{loja__eletronicos_8c_a89d0ad7ad0799834e44374eea7d178ec} 
+\#define TAMANHO\+\_\+\+STATUS~20}
+
+Define o tamanho máximo do status 
+
+\doxysubsection{Funções}
+\Hypertarget{loja__eletronicos_8c_a29554155b25d194765f47054daf27f52}\index{loja\_eletronicos.c@{loja\_eletronicos.c}!atualizarProduto@{atualizarProduto}}
+\index{atualizarProduto@{atualizarProduto}!loja\_eletronicos.c@{loja\_eletronicos.c}}
+\doxysubsubsection{\texorpdfstring{atualizarProduto()}{atualizarProduto()}}
+{\footnotesize\ttfamily \label{loja__eletronicos_8c_a29554155b25d194765f47054daf27f52} 
+void atualizar\+Produto (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+função para atualizar os produtos existentes no sistema 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00280\ \{}
+\DoxyCodeLine{00281\ \ \ \ \ \textcolor{keywordtype}{char}\ id\_atualizar[\mbox{\hyperlink{loja__eletronicos_8c_ae661f538744a20062e7d556fd3a63086}{TAMANHO\_ID}}];}
+\DoxyCodeLine{00282\ \ \ \ \ \textcolor{comment}{//\ recebe\ o\ ID\ do\ produto\ que\ será\ atualizado}}
+\DoxyCodeLine{00283\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Digite\ o\ ID\ do\ produto\ que\ deseja\ atualizar:\ "{}});}
+\DoxyCodeLine{00284\ \ \ \ \ scanf(\textcolor{stringliteral}{"{}\%s"{}},\ id\_atualizar);}
+\DoxyCodeLine{00285\ \ \ \ \ getchar();}
+\DoxyCodeLine{00286\ \ \ \ \ \textcolor{comment}{//\ encontra\ o\ ID\ correspondente\ na\ matriz}}
+\DoxyCodeLine{00287\ \ \ \ \ \textcolor{keywordtype}{int}\ encontrar\_id\ =\ 0;}
+\DoxyCodeLine{00288\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ \mbox{\hyperlink{loja__eletronicos_8c_a4533ea3a2d1c452fc858e74ee999ec2a}{LINHAS}};\ i++)}
+\DoxyCodeLine{00289\ \ \ \ \ \{}
+\DoxyCodeLine{00290\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ \mbox{\hyperlink{loja__eletronicos_8c_a9db37cd75be1d2f3cfc2703673801cb0}{COLUNAS}};\ j++)}
+\DoxyCodeLine{00291\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00292\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ com\ o\ id\ encontrado,\ realiza\ a\ atualização\ dos\ seus\ indices}}
+\DoxyCodeLine{00293\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (strcmp(\mbox{\hyperlink{loja__eletronicos_8c_a5107cc7e1b66823cf8dd17851a23e583}{produtos}}[i][j].\textcolor{keywordtype}{id},\ id\_atualizar)\ ==\ 0)}
+\DoxyCodeLine{00294\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00295\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Procurando\ produto"{}});}
+\DoxyCodeLine{00296\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ 3;\ i++)}
+\DoxyCodeLine{00297\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00298\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}."{}});}
+\DoxyCodeLine{00299\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fflush(stdout);}
+\DoxyCodeLine{00300\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ sleep(1);}
+\DoxyCodeLine{00301\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00302\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}\(\backslash\)nProduto\ encontrado"{}});}
+\DoxyCodeLine{00303\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ encontrar\_id\ =\ 1;}
+\DoxyCodeLine{00304\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (1)}
+\DoxyCodeLine{00305\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00306\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ id\_digitado[100];}
+\DoxyCodeLine{00307\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ recebe\ novo\ id\ do\ produto}}
+\DoxyCodeLine{00308\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}\(\backslash\)nDigite\ o\ novo\ ID\ do\ produto\ (6\ digitos):\ "{}});}
+\DoxyCodeLine{00309\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fgets(id\_digitado,\ \textcolor{keyword}{sizeof}(id\_digitado),\ stdin);}
+\DoxyCodeLine{00310\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ id\_digitado[strcspn(id\_digitado,\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}})]\ =\ 0;}
+\DoxyCodeLine{00311\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ verifica\ se\ p\ novo\ id\ do\ produto\ esta\ correto}}
+\DoxyCodeLine{00312\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (strlen(id\_digitado)\ !=\ 6)}
+\DoxyCodeLine{00313\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00314\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}ID\ invalido!Digite\ um\ ID\ com\ 6\ digitos.\ Pressione\ Enter\ para\ continuar..."{}});}
+\DoxyCodeLine{00315\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ getchar();}
+\DoxyCodeLine{00316\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ system(\textcolor{stringliteral}{"{}cls\ ||\ clear"{}});}
+\DoxyCodeLine{00317\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};\ \textcolor{comment}{//\ volta\ ao\ inicio\ do\ loop\ para\ solicitar\ a\ entrada\ novamente}}
+\DoxyCodeLine{00318\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00319\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00320\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00321\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ copia\ o\ id\ digitado\ para\ o\ array\ de\ produtos}}
+\DoxyCodeLine{00322\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ strcpy(\mbox{\hyperlink{loja__eletronicos_8c_a5107cc7e1b66823cf8dd17851a23e583}{produtos}}[i][j].\textcolor{keywordtype}{id},\ id\_digitado);}
+\DoxyCodeLine{00323\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};\ \textcolor{comment}{//\ interrompe\ o\ loop}}
+\DoxyCodeLine{00324\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00325\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00326\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ recebe\ novo\ nome\ do\ produto}}
+\DoxyCodeLine{00327\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Digite\ o\ novo\ nome\ do\ produto:\ "{}});}
+\DoxyCodeLine{00328\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ scanf(\textcolor{stringliteral}{"{}\%s"{}},\ \mbox{\hyperlink{loja__eletronicos_8c_a5107cc7e1b66823cf8dd17851a23e583}{produtos}}[i][j].nome);}
+\DoxyCodeLine{00329\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ getchar();\ \textcolor{comment}{//\ Limpar\ o\ buffer\ de\ entrada}}
+\DoxyCodeLine{00330\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ recebe\ novo\ status\ do\ produto}}
+\DoxyCodeLine{00331\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Digite\ o\ novo\ status\ do\ produto:\ "{}});}
+\DoxyCodeLine{00332\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fgets(\mbox{\hyperlink{loja__eletronicos_8c_a5107cc7e1b66823cf8dd17851a23e583}{produtos}}[i][j].status,\ \mbox{\hyperlink{loja__eletronicos_8c_a89d0ad7ad0799834e44374eea7d178ec}{TAMANHO\_STATUS}},\ stdin);}
+\DoxyCodeLine{00333\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{loja__eletronicos_8c_a5107cc7e1b66823cf8dd17851a23e583}{produtos}}[i][j].\mbox{\hyperlink{struct_produto_a700ea647ded6426aa869626727f34eb2}{status}}[strcspn(\mbox{\hyperlink{loja__eletronicos_8c_a5107cc7e1b66823cf8dd17851a23e583}{produtos}}[i][j].status,\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}})]\ =\ 0;\ \textcolor{comment}{//\ Remover\ o\ '\(\backslash\)n'\ do\ final}}
+\DoxyCodeLine{00334\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ system(\textcolor{stringliteral}{"{}cls\ ||\ clear"{}});}
+\DoxyCodeLine{00335\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00336\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00337\ \ \ \ \ \}}
+\DoxyCodeLine{00338\ \ \ \ \ \textcolor{comment}{//\ caso\ não\ seja\ encontrado\ o\ produto,\ retorna\ para\ o\ inicio\ da\ função}}
+\DoxyCodeLine{00339\ \ \ \ \ \textcolor{keywordflow}{if}\ (!encontrar\_id)}
+\DoxyCodeLine{00340\ \ \ \ \ \{}
+\DoxyCodeLine{00341\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Produto\ não\ encontrado\ no\ sistema!\(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{00342\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{loja__eletronicos_8c_a29554155b25d194765f47054daf27f52}{atualizarProduto}}();}
+\DoxyCodeLine{00343\ \ \ \ \ \}}
+\DoxyCodeLine{00344\ \}}
+
+\end{DoxyCode}
+\Hypertarget{loja__eletronicos_8c_a67a39725ab7392789a90663bbae39ce8}\index{loja\_eletronicos.c@{loja\_eletronicos.c}!cadastrarProduto@{cadastrarProduto}}
+\index{cadastrarProduto@{cadastrarProduto}!loja\_eletronicos.c@{loja\_eletronicos.c}}
+\doxysubsubsection{\texorpdfstring{cadastrarProduto()}{cadastrarProduto()}}
+{\footnotesize\ttfamily \label{loja__eletronicos_8c_a67a39725ab7392789a90663bbae39ce8} 
+void cadastrar\+Produto (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+função para cadastrar os produtos 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00186\ \{}
+\DoxyCodeLine{00187\ \ \ \ \ \textcolor{comment}{//\ verifica\ se\ o\ limite\ de\ produtos\ foi\ atingido}}
+\DoxyCodeLine{00188\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{loja__eletronicos_8c_a455f97001e0b23b903200dba40bd7e86}{quantidadeProdutos}}\ >=\ \mbox{\hyperlink{loja__eletronicos_8c_a4533ea3a2d1c452fc858e74ee999ec2a}{LINHAS}}\ *\ \mbox{\hyperlink{loja__eletronicos_8c_a9db37cd75be1d2f3cfc2703673801cb0}{COLUNAS}})}
+\DoxyCodeLine{00189\ \ \ \ \ \{}
+\DoxyCodeLine{00190\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Limite\ máximo\ de\ produtos\ atingido!\(\backslash\)n"{}});}
+\DoxyCodeLine{00191\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00192\ \ \ \ \ \}}
+\DoxyCodeLine{00193\ }
+\DoxyCodeLine{00194\ \ \ \ \ \textcolor{keywordtype}{int}\ linha\ =\ \mbox{\hyperlink{loja__eletronicos_8c_a455f97001e0b23b903200dba40bd7e86}{quantidadeProdutos}}\ /\ \mbox{\hyperlink{loja__eletronicos_8c_a9db37cd75be1d2f3cfc2703673801cb0}{COLUNAS}};}
+\DoxyCodeLine{00195\ \ \ \ \ \textcolor{keywordtype}{int}\ coluna\ =\ \mbox{\hyperlink{loja__eletronicos_8c_a455f97001e0b23b903200dba40bd7e86}{quantidadeProdutos}}\ \%\ \mbox{\hyperlink{loja__eletronicos_8c_a9db37cd75be1d2f3cfc2703673801cb0}{COLUNAS}};}
+\DoxyCodeLine{00196\ \ \ \ \ \textcolor{keywordflow}{while}\ (1)}
+\DoxyCodeLine{00197\ \ \ \ \ \{}
+\DoxyCodeLine{00198\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ id\_digitado[100];}
+\DoxyCodeLine{00199\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ recebe\ ID\ do\ produto}}
+\DoxyCodeLine{00200\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Digite\ o\ ID\ do\ produto\ (6\ digitos):\ "{}});}
+\DoxyCodeLine{00201\ \ \ \ \ \ \ \ \ fgets(id\_digitado,\ \textcolor{keyword}{sizeof}(id\_digitado),\ stdin);}
+\DoxyCodeLine{00202\ \ \ \ \ \ \ \ \ id\_digitado[strcspn(id\_digitado,\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}})]\ =\ 0;\ \textcolor{comment}{//\ ignora\ o\ "{}/n"{};}}
+\DoxyCodeLine{00203\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ verifica\ se\ o\ id\ digitado\ possui\ 6\ digitos}}
+\DoxyCodeLine{00204\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (strlen(id\_digitado)\ !=\ 6)}
+\DoxyCodeLine{00205\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00206\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}ID\ invalido!Digite\ um\ ID\ com\ 6\ digitos.\ Pressione\ Enter\ para\ continuar..."{}});}
+\DoxyCodeLine{00207\ \ \ \ \ \ \ \ \ \ \ \ \ getchar();}
+\DoxyCodeLine{00208\ \ \ \ \ \ \ \ \ \ \ \ \ system(\textcolor{stringliteral}{"{}cls\ ||\ clear"{}});}
+\DoxyCodeLine{00209\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};\ \textcolor{comment}{//\ volta\ ao\ inicio\ do\ loop\ para\ solicitar\ a\ entrada\ novamente}}
+\DoxyCodeLine{00210\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00211\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00212\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00213\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ copia\ o\ id\ digitado\ para\ o\ array\ de\ produtos\ se\ o\ id\ estiver\ correto}}
+\DoxyCodeLine{00214\ \ \ \ \ \ \ \ \ \ \ \ \ strcpy(\mbox{\hyperlink{loja__eletronicos_8c_a5107cc7e1b66823cf8dd17851a23e583}{produtos}}[linha][coluna].\textcolor{keywordtype}{id},\ id\_digitado);}
+\DoxyCodeLine{00215\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};\ \textcolor{comment}{//\ interrompe\ o\ loop}}
+\DoxyCodeLine{00216\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00217\ \ \ \ \ \}}
+\DoxyCodeLine{00218\ \ \ \ \ \textcolor{comment}{//\ recebe\ nome\ do\ produto}}
+\DoxyCodeLine{00219\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Digite\ o\ nome\ do\ produto:\ "{}});}
+\DoxyCodeLine{00220\ \ \ \ \ fgets(\mbox{\hyperlink{loja__eletronicos_8c_a5107cc7e1b66823cf8dd17851a23e583}{produtos}}[linha][coluna].nome,\ \mbox{\hyperlink{loja__eletronicos_8c_a9507b8b6e808576cd3220d584c1f180b}{TAMANHO\_NOME}},\ stdin);}
+\DoxyCodeLine{00221\ \ \ \ \ \mbox{\hyperlink{loja__eletronicos_8c_a5107cc7e1b66823cf8dd17851a23e583}{produtos}}[linha][coluna].\mbox{\hyperlink{struct_produto_a29b96cca1b4572083ff942682141420e}{nome}}[strcspn(\mbox{\hyperlink{loja__eletronicos_8c_a5107cc7e1b66823cf8dd17851a23e583}{produtos}}[linha][coluna].nome,\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}})]\ =\ 0;\ \textcolor{comment}{//\ Remover\ o\ '\(\backslash\)n'\ do\ final}}
+\DoxyCodeLine{00222\ }
+\DoxyCodeLine{00223\ \ \ \ \ \textcolor{comment}{//\ recebe\ status\ do\ produto}}
+\DoxyCodeLine{00224\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Digite\ o\ status\ do\ produto:\ "{}});}
+\DoxyCodeLine{00225\ \ \ \ \ fgets(\mbox{\hyperlink{loja__eletronicos_8c_a5107cc7e1b66823cf8dd17851a23e583}{produtos}}[linha][coluna].status,\ \mbox{\hyperlink{loja__eletronicos_8c_a89d0ad7ad0799834e44374eea7d178ec}{TAMANHO\_STATUS}},\ stdin);}
+\DoxyCodeLine{00226\ \ \ \ \ \mbox{\hyperlink{loja__eletronicos_8c_a5107cc7e1b66823cf8dd17851a23e583}{produtos}}[linha][coluna].\mbox{\hyperlink{struct_produto_a700ea647ded6426aa869626727f34eb2}{status}}[strcspn(\mbox{\hyperlink{loja__eletronicos_8c_a5107cc7e1b66823cf8dd17851a23e583}{produtos}}[linha][coluna].status,\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}})]\ =\ 0;\ \textcolor{comment}{//\ Remover\ o\ '\(\backslash\)n'\ do\ final}}
+\DoxyCodeLine{00227\ \ \ \ \ \textcolor{comment}{//\ aumenta\ qtd\ de\ produtos}}
+\DoxyCodeLine{00228\ \ \ \ \ \mbox{\hyperlink{loja__eletronicos_8c_a455f97001e0b23b903200dba40bd7e86}{quantidadeProdutos}}++;}
+\DoxyCodeLine{00229\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\(\backslash\)nProduto\ cadastrado\ com\ sucesso!\(\backslash\)n"{}});}
+\DoxyCodeLine{00230\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Pressione\ 'enter'\ para\ continuar\ \(\backslash\)n"{}});}
+\DoxyCodeLine{00231\ \ \ \ \ getchar();}
+\DoxyCodeLine{00232\ \ \ \ \ system(\textcolor{stringliteral}{"{}cls\ ||\ clear"{}});}
+\DoxyCodeLine{00233\ \}}
+
+\end{DoxyCode}
+\Hypertarget{loja__eletronicos_8c_ae22d9c3570c1c575e0835e347301eb46}\index{loja\_eletronicos.c@{loja\_eletronicos.c}!cadastrarUsuario@{cadastrarUsuario}}
+\index{cadastrarUsuario@{cadastrarUsuario}!loja\_eletronicos.c@{loja\_eletronicos.c}}
+\doxysubsubsection{\texorpdfstring{cadastrarUsuario()}{cadastrarUsuario()}}
+{\footnotesize\ttfamily \label{loja__eletronicos_8c_ae22d9c3570c1c575e0835e347301eb46} 
+void cadastrar\+Usuario (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+funcao para cadastar um novo usuario 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00057\ \{}
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{comment}{//\ senha\ de\ cadastro}}
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keywordtype}{char}\ senha[\mbox{\hyperlink{loja__eletronicos_8c_aec83cc5ac73b2bc5e472624b9e4be500}{TAMANHO\_SENHA}}];}
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{comment}{//armazena\ a\ opção\ selecionada}}
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keywordtype}{int}\ opcao\ =\ 0;}
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keywordflow}{do}\ \textcolor{comment}{//\ laço\ do\ while\ para\ continuidade\ da\ funcao\ cadastrarUsuario}}
+\DoxyCodeLine{00063\ \ \ \ \ \{}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ recebe\ senha\ de\ cadastro}}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}\(\backslash\)nDigite\ a\ senha\ de\ cadastro:\ "{}});}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ scanf(\textcolor{stringliteral}{"{}\%s"{}},\ senha);}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ getchar();}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ verifica\ se\ a\ senha\ esta\ incorreta\ com\ strcmp}}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (strcmp(senha,\ \mbox{\hyperlink{loja__eletronicos_8c_a9ff26672e287ce96f1a86b525fa71e47}{SENHA\_CADASTRO}})\ !=\ 0)}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ recebe\ opção\ do\ usuario}}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Senha\ incorreta!\(\backslash\)n"{}});}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}1\ -\/\ Tenta\ novamente\(\backslash\)n"{}});}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}2\ -\/\ Retorna\ ao\ menu\ anterior\(\backslash\)n"{}});}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Porfavor,\ selecione\ uma\ das\ opcoes\ acima:\ "{}});}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \ \ \ \ scanf(\textcolor{stringliteral}{"{}\%d"{}},\ \&opcao);}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \ \ \ \ system(\textcolor{stringliteral}{"{}cls\ ||\ clear"{}});}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \ \ \ \ getchar();}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ switch\ case\ para\ receber\ opcao\ do\ usuario}}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}\ (opcao)}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 1:}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};\ \textcolor{comment}{//\ Recomeca\ o\ loop}}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 2:}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};\ \textcolor{comment}{//\ retorna\ ao\ meno\ anterior}}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Opcao\ invalida!\ Tente\ novamente.\(\backslash\)n"{}});}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00094\ \ \ \ \ \}\ \textcolor{keywordflow}{while}\ (strcmp(senha,\ \mbox{\hyperlink{loja__eletronicos_8c_a9ff26672e287ce96f1a86b525fa71e47}{SENHA\_CADASTRO}})\ !=\ 0);\ \textcolor{comment}{//\ verificação\ para\ o\ laço\ continuar\ com\ strcmp\ se\ a\ senha\ de\ cadastro\ ainda\ for\ incorreta}}
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00096\ \ \ \ \ \textcolor{comment}{//\ verifica\ se\ a\ quantidade\ de\ usuarios\ excedeu\ o\ limite\ estabelecido.}}
+\DoxyCodeLine{00097\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{loja__eletronicos_8c_acab5f3c0c64cd6d366afcb394f4312eb}{quantidadeUsuarios}}\ >=\ \mbox{\hyperlink{loja__eletronicos_8c_a0145df6bb6266e199e863ed5a9b0ac79}{MAX\_USUARIOS}})}
+\DoxyCodeLine{00098\ \ \ \ \ \{}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Limite\ maximo\ de\ usuarios\ atingido!\(\backslash\)n"{}});}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00101\ \ \ \ \ \}}
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00103\ \ \ \ \ \textcolor{comment}{//\ recebe\ o\ nome\ do\ usuario}}
+\DoxyCodeLine{00104\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Digite\ o\ nome\ do\ usuario:\ "{}});}
+\DoxyCodeLine{00105\ \ \ \ \ scanf(\textcolor{stringliteral}{"{}\%s"{}},\ \mbox{\hyperlink{loja__eletronicos_8c_a1d063905adcef00b45f3155285d0cba6}{usuarios}}[\mbox{\hyperlink{loja__eletronicos_8c_acab5f3c0c64cd6d366afcb394f4312eb}{quantidadeUsuarios}}].nome);}
+\DoxyCodeLine{00106\ \ \ \ \ \textcolor{comment}{//\ recebe\ o\ cargo\ do\ usuario}}
+\DoxyCodeLine{00107\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Digite\ o\ cargo\ do\ usuario\ (Admin\ ou\ Vendedor):\ "{}});\ \textcolor{comment}{//\ recebe\ o\ cargo\ do\ usuario}}
+\DoxyCodeLine{00108\ \ \ \ \ scanf(\textcolor{stringliteral}{"{}\%s"{}},\ \mbox{\hyperlink{loja__eletronicos_8c_a1d063905adcef00b45f3155285d0cba6}{usuarios}}[\mbox{\hyperlink{loja__eletronicos_8c_acab5f3c0c64cd6d366afcb394f4312eb}{quantidadeUsuarios}}].cargo);}
+\DoxyCodeLine{00109\ \ \ \ \ getchar();}
+\DoxyCodeLine{00110\ \ \ \ \ \textcolor{comment}{//\ verifica\ se\ o\ cargo\ digitado\ eh\ invalido}}
+\DoxyCodeLine{00111\ \ \ \ \ \textcolor{keywordflow}{if}\ (strcmp(\mbox{\hyperlink{loja__eletronicos_8c_a1d063905adcef00b45f3155285d0cba6}{usuarios}}[\mbox{\hyperlink{loja__eletronicos_8c_acab5f3c0c64cd6d366afcb394f4312eb}{quantidadeUsuarios}}].cargo,\ \textcolor{stringliteral}{"{}Admin"{}})\ !=\ 0\ \&\&\ strcmp(\mbox{\hyperlink{loja__eletronicos_8c_a1d063905adcef00b45f3155285d0cba6}{usuarios}}[\mbox{\hyperlink{loja__eletronicos_8c_acab5f3c0c64cd6d366afcb394f4312eb}{quantidadeUsuarios}}].cargo,\ \textcolor{stringliteral}{"{}Vendedor"{}})\ !=\ 0)}
+\DoxyCodeLine{00112\ \ \ \ \ \{}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Cargo\ Invalido.\ Digite\ 'Admin'\ ou\ 'Vendedor'\ "{}});}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{loja__eletronicos_8c_ae22d9c3570c1c575e0835e347301eb46}{cadastrarUsuario}}();}
+\DoxyCodeLine{00115\ \ \ \ \ \}}
+\DoxyCodeLine{00116\ \ \ \ \ \textcolor{keywordtype}{char}\ senha\_usuario[\mbox{\hyperlink{loja__eletronicos_8c_aec83cc5ac73b2bc5e472624b9e4be500}{TAMANHO\_SENHA}}];}
+\DoxyCodeLine{00117\ \ \ \ \ \textcolor{keywordflow}{do}}
+\DoxyCodeLine{00118\ \ \ \ \ \{}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ recebe\ a\ senha\ do\ usuario}}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Digite\ a\ senha\ (maximo\ 4\ digitos):\ "{}});\ \textcolor{comment}{//\ recebe\ a\ senha\ do\ usuario}}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ scanf(\textcolor{stringliteral}{"{}\%s"{}},\ \&senha\_usuario);}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ remove\ o\ caractere\ de\ nova\ linha\ se\ estiver\ presente}}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ senha\_usuario[strcspn(senha\_usuario,\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}})]\ =\ \textcolor{charliteral}{'\(\backslash\)0'};}
+\DoxyCodeLine{00124\ }
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ verifica\ se\ a\ senha\ ultrapassa\ o\ limite\ estabelecido}}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (strlen(senha\_usuario)\ >\ 4)}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Erro\ a\ senha\ tem\ mais\ de\ 4\ digitos.\(\backslash\)n"{}});}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Pressione\ enter\ para\ continuar..."{}});}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \ \ \ \ getchar();}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \ \ \ \ getchar();}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \ \ \ \ system(\textcolor{stringliteral}{"{}cls\ ||\ clear"{}});}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ \{\ \ \ \textcolor{comment}{//verifica\ se\ a\ quantidade\ usuarios\ ainda\ não\ excedeu\ o\ limite\ máximo}}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{loja__eletronicos_8c_acab5f3c0c64cd6d366afcb394f4312eb}{quantidadeUsuarios}}\ <\ \mbox{\hyperlink{loja__eletronicos_8c_a0145df6bb6266e199e863ed5a9b0ac79}{MAX\_USUARIOS}})}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ strncpy(\mbox{\hyperlink{loja__eletronicos_8c_a1d063905adcef00b45f3155285d0cba6}{usuarios}}[\mbox{\hyperlink{loja__eletronicos_8c_acab5f3c0c64cd6d366afcb394f4312eb}{quantidadeUsuarios}}].senha,\ senha\_usuario,\ \mbox{\hyperlink{loja__eletronicos_8c_aec83cc5ac73b2bc5e472624b9e4be500}{TAMANHO\_SENHA}});}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{loja__eletronicos_8c_a1d063905adcef00b45f3155285d0cba6}{usuarios}}[\mbox{\hyperlink{loja__eletronicos_8c_acab5f3c0c64cd6d366afcb394f4312eb}{quantidadeUsuarios}}].\mbox{\hyperlink{struct_usuario_a1310f2d594c46c33095fae70a1a75e5e}{senha}}[\mbox{\hyperlink{loja__eletronicos_8c_aec83cc5ac73b2bc5e472624b9e4be500}{TAMANHO\_SENHA}}\ -\/\ 1]\ =\ \textcolor{charliteral}{'\(\backslash\)0'};\ \textcolor{comment}{//\ Garante\ que\ a\ string\ estah\ terminada}}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{loja__eletronicos_8c_acab5f3c0c64cd6d366afcb394f4312eb}{quantidadeUsuarios}}++;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ incrementa\ a\ variavel\ em\ 1}}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Usuario\ cadastrado\ com\ sucesso!\(\backslash\)n"{}});\ \textcolor{comment}{//exibe\ mensagem\ de\ sucesso.}}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Pressione\ 'enter'\ para\ continuar"{}});}
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ getchar();}
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ getchar();}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ system(\textcolor{stringliteral}{"{}cls\ ||\ clear"{}});\textcolor{comment}{//limpa\ a\ tela}}
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00150\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}numero\ maximo\ de\ usuarios\ atingido"{}});}
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00154\ \ \ \ \ \}\ \textcolor{keywordflow}{while}\ (strlen(senha\_usuario)\ >\ 4);\ \textcolor{comment}{//repete\ o\ loop\ enquanto\ a\ senha\ digitada\ for\ maior\ que\ 4}}
+\DoxyCodeLine{00155\ \}}
+
+\end{DoxyCode}
+\Hypertarget{loja__eletronicos_8c_acffdc8717b53fde038fdac53a3186643}\index{loja\_eletronicos.c@{loja\_eletronicos.c}!consultaId@{consultaId}}
+\index{consultaId@{consultaId}!loja\_eletronicos.c@{loja\_eletronicos.c}}
+\doxysubsubsection{\texorpdfstring{consultaId()}{consultaId()}}
+{\footnotesize\ttfamily \label{loja__eletronicos_8c_acffdc8717b53fde038fdac53a3186643} 
+void consulta\+Id (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+função para consultar os IDs de produto contidos no sistema 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00348\ \{}
+\DoxyCodeLine{00349\ \ \ \ \ \textcolor{keywordtype}{char}\ id\_consulta[\mbox{\hyperlink{loja__eletronicos_8c_ae661f538744a20062e7d556fd3a63086}{TAMANHO\_ID}}];}
+\DoxyCodeLine{00350\ \ \ \ \ \textcolor{comment}{//\ recebe\ o\ ID\ do\ produto\ que\ será\ encontrado}}
+\DoxyCodeLine{00351\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Digite\ o\ ID\ para\ consulta\ de\ produto:\ "{}});}
+\DoxyCodeLine{00352\ \ \ \ \ scanf(\textcolor{stringliteral}{"{}\%s"{}},\ id\_consulta);}
+\DoxyCodeLine{00353\ \ \ \ \ getchar();}
+\DoxyCodeLine{00354\ \ \ \ \ \textcolor{comment}{//\ encontra\ o\ ID\ correspondente\ na\ matriz}}
+\DoxyCodeLine{00355\ \ \ \ \ \textcolor{keywordtype}{int}\ encontrar\_id\ =\ 0;}
+\DoxyCodeLine{00356\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ \mbox{\hyperlink{loja__eletronicos_8c_a4533ea3a2d1c452fc858e74ee999ec2a}{LINHAS}};\ i++)}
+\DoxyCodeLine{00357\ \ \ \ \ \{}
+\DoxyCodeLine{00358\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ \mbox{\hyperlink{loja__eletronicos_8c_a9db37cd75be1d2f3cfc2703673801cb0}{COLUNAS}};\ j++)}
+\DoxyCodeLine{00359\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00360\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ com\ o\ id\ encontrado,\ realiza\ a\ consulta\ dos\ seus\ indices}}
+\DoxyCodeLine{00361\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (strcmp(\mbox{\hyperlink{loja__eletronicos_8c_a5107cc7e1b66823cf8dd17851a23e583}{produtos}}[i][j].\textcolor{keywordtype}{id},\ id\_consulta)\ ==\ 0)}
+\DoxyCodeLine{00362\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00363\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Procurando\ produto"{}});}
+\DoxyCodeLine{00364\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ 3;\ i++)}
+\DoxyCodeLine{00365\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00366\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}."{}});}
+\DoxyCodeLine{00367\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fflush(stdout);}
+\DoxyCodeLine{00368\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ sleep(1);}
+\DoxyCodeLine{00369\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00370\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}\(\backslash\)nProduto\ encontrado\(\backslash\)n"{}});}
+\DoxyCodeLine{00371\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}ID:\ \%s\(\backslash\)n"{}},\ \mbox{\hyperlink{loja__eletronicos_8c_a5107cc7e1b66823cf8dd17851a23e583}{produtos}}[i][j].\textcolor{keywordtype}{id});}
+\DoxyCodeLine{00372\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Nome:\ \%s\(\backslash\)n"{}},\ \mbox{\hyperlink{loja__eletronicos_8c_a5107cc7e1b66823cf8dd17851a23e583}{produtos}}[i][j].nome);}
+\DoxyCodeLine{00373\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Status:\ \%s\(\backslash\)n"{}},\ \mbox{\hyperlink{loja__eletronicos_8c_a5107cc7e1b66823cf8dd17851a23e583}{produtos}}[i][j].status);}
+\DoxyCodeLine{00374\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}\(\backslash\)n"{}});}
+\DoxyCodeLine{00375\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ encontrar\_id\ =\ 1;}
+\DoxyCodeLine{00376\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Produto\ encontrado\ com\ sucesso!\(\backslash\)n"{}});}
+\DoxyCodeLine{00377\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Pressione\ 'enter'\ para\ continuar\ "{}});}
+\DoxyCodeLine{00378\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ getchar();}
+\DoxyCodeLine{00379\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ system(\textcolor{stringliteral}{"{}cls\ ||\ clear"{}});}
+\DoxyCodeLine{00380\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00381\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00382\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00383\ \ \ \ \ \}}
+\DoxyCodeLine{00384\ \ \ \ \ \textcolor{comment}{//\ caso\ não\ seja\ encontrado\ o\ produto,\ retorna\ para\ o\ inicio\ da\ função}}
+\DoxyCodeLine{00385\ \ \ \ \ \textcolor{keywordflow}{if}\ (!encontrar\_id)}
+\DoxyCodeLine{00386\ \ \ \ \ \{}
+\DoxyCodeLine{00387\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Produto\ não\ encontrado\ no\ sistema!\(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{00388\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{loja__eletronicos_8c_acffdc8717b53fde038fdac53a3186643}{consultaId}}();}
+\DoxyCodeLine{00389\ \ \ \ \ \}}
+\DoxyCodeLine{00390\ \}}
+
+\end{DoxyCode}
+\Hypertarget{loja__eletronicos_8c_a68f3e3896fd5fcbfcba8584a3f8226d2}\index{loja\_eletronicos.c@{loja\_eletronicos.c}!excluirProduto@{excluirProduto}}
+\index{excluirProduto@{excluirProduto}!loja\_eletronicos.c@{loja\_eletronicos.c}}
+\doxysubsubsection{\texorpdfstring{excluirProduto()}{excluirProduto()}}
+{\footnotesize\ttfamily \label{loja__eletronicos_8c_a68f3e3896fd5fcbfcba8584a3f8226d2} 
+void excluir\+Produto (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+função para fazer a exclusão de produtos 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00237\ \{}
+\DoxyCodeLine{00238\ \ \ \ \ \textcolor{keywordtype}{char}\ id\_excluir[\mbox{\hyperlink{loja__eletronicos_8c_ae661f538744a20062e7d556fd3a63086}{TAMANHO\_ID}}];}
+\DoxyCodeLine{00239\ \ \ \ \ \textcolor{comment}{//\ recebe\ o\ ID\ do\ produto\ que\ será\ excluido}}
+\DoxyCodeLine{00240\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Digite\ o\ ID\ do\ produto\ que\ deseja\ excluir:\ "{}});}
+\DoxyCodeLine{00241\ \ \ \ \ scanf(\textcolor{stringliteral}{"{}\%s"{}},\ id\_excluir);}
+\DoxyCodeLine{00242\ \ \ \ \ getchar();}
+\DoxyCodeLine{00243\ \ \ \ \ \textcolor{comment}{//\ encontra\ o\ ID\ correspondente\ na\ matriz}}
+\DoxyCodeLine{00244\ \ \ \ \ \textcolor{keywordtype}{int}\ encontrar\_id\ =\ 0;}
+\DoxyCodeLine{00245\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ \mbox{\hyperlink{loja__eletronicos_8c_a4533ea3a2d1c452fc858e74ee999ec2a}{LINHAS}};\ i++)}
+\DoxyCodeLine{00246\ \ \ \ \ \{}
+\DoxyCodeLine{00247\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ \mbox{\hyperlink{loja__eletronicos_8c_a9db37cd75be1d2f3cfc2703673801cb0}{COLUNAS}};\ j++)}
+\DoxyCodeLine{00248\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00249\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ com\ o\ id\ encontrado,\ realiza\ a\ exclusão}}
+\DoxyCodeLine{00250\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (strcmp(\mbox{\hyperlink{loja__eletronicos_8c_a5107cc7e1b66823cf8dd17851a23e583}{produtos}}[i][j].\textcolor{keywordtype}{id},\ id\_excluir)\ ==\ 0)}
+\DoxyCodeLine{00251\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00252\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Excluindo\ produto"{}});}
+\DoxyCodeLine{00253\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ 3;\ i++)}
+\DoxyCodeLine{00254\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00255\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}."{}});}
+\DoxyCodeLine{00256\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fflush(stdout);}
+\DoxyCodeLine{00257\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ sleep(1);}
+\DoxyCodeLine{00258\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00259\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ limpa\ os\ valores\ que\ o\ id\ tinha\ armazenado\ no\ array}}
+\DoxyCodeLine{00260\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ encontrar\_id\ =\ 1;}
+\DoxyCodeLine{00261\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{loja__eletronicos_8c_a5107cc7e1b66823cf8dd17851a23e583}{produtos}}[i][j].\mbox{\hyperlink{struct_produto_a26ff49585fd366ac95a9178f2b6587fd}{id}}[0]\ =\ \textcolor{charliteral}{'\(\backslash\)0'};}
+\DoxyCodeLine{00262\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{loja__eletronicos_8c_a5107cc7e1b66823cf8dd17851a23e583}{produtos}}[i][j].\mbox{\hyperlink{struct_produto_a29b96cca1b4572083ff942682141420e}{nome}}[0]\ =\ \textcolor{charliteral}{'\(\backslash\)0'};}
+\DoxyCodeLine{00263\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{loja__eletronicos_8c_a5107cc7e1b66823cf8dd17851a23e583}{produtos}}[i][j].\mbox{\hyperlink{struct_produto_a700ea647ded6426aa869626727f34eb2}{status}}[0]\ =\ \textcolor{charliteral}{'\(\backslash\)0'};}
+\DoxyCodeLine{00264\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{loja__eletronicos_8c_a455f97001e0b23b903200dba40bd7e86}{quantidadeProdutos}}-\/-\/;}
+\DoxyCodeLine{00265\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Produto\ excluído!\(\backslash\)n"{}});}
+\DoxyCodeLine{00266\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ system(\textcolor{stringliteral}{"{}cls\ ||\ clear"{}});}
+\DoxyCodeLine{00267\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00268\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00269\ \ \ \ \ \}}
+\DoxyCodeLine{00270\ \ \ \ \ \textcolor{comment}{//\ caso\ não\ seja\ encontrado\ o\ id}}
+\DoxyCodeLine{00271\ \ \ \ \ \textcolor{keywordflow}{if}\ (!encontrar\_id)}
+\DoxyCodeLine{00272\ \ \ \ \ \{}
+\DoxyCodeLine{00273\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Produto\ não\ encontrado\ no\ sistema!\(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{00274\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{loja__eletronicos_8c_a68f3e3896fd5fcbfcba8584a3f8226d2}{excluirProduto}}();\ \textcolor{comment}{//\ retorna\ para\ o\ começo}}
+\DoxyCodeLine{00275\ \ \ \ \ \}}
+\DoxyCodeLine{00276\ \}}
+
+\end{DoxyCode}
+\Hypertarget{loja__eletronicos_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{loja\_eletronicos.c@{loja\_eletronicos.c}!main@{main}}
+\index{main@{main}!loja\_eletronicos.c@{loja\_eletronicos.c}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{loja__eletronicos_8c_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00530\ \{}
+\DoxyCodeLine{00531\ \ \ \ \ \textcolor{keywordtype}{int}\ opcao;}
+\DoxyCodeLine{00532\ }
+\DoxyCodeLine{00533\ \ \ \ \ \textcolor{keywordflow}{do}\ \textcolor{comment}{//\ do\ while\ para\ continuidade\ da\ tela\ inicial\ do\ sistema}}
+\DoxyCodeLine{00534\ \ \ \ \ \{}
+\DoxyCodeLine{00535\ }
+\DoxyCodeLine{00536\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}\(\backslash\)n-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\(\backslash\)n"{}});}
+\DoxyCodeLine{00537\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}MDM\ Eletronica\ -\/\ Tela\ inicial\(\backslash\)n"{}});}
+\DoxyCodeLine{00538\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}1.\ Cadastro\ de\ Usuario\(\backslash\)n"{}});}
+\DoxyCodeLine{00539\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}2.\ Entrar\ no\ Sistema\(\backslash\)n"{}});}
+\DoxyCodeLine{00540\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}3.\ Sair"{}});}
+\DoxyCodeLine{00541\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}\(\backslash\)n-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\(\backslash\)n"{}});}
+\DoxyCodeLine{00542\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Escolha\ uma\ opcao:\ "{}});}
+\DoxyCodeLine{00543\ \ \ \ \ \ \ \ \ scanf(\textcolor{stringliteral}{"{}\%d"{}},\ \&opcao);}
+\DoxyCodeLine{00544\ \ \ \ \ \ \ \ \ getchar();}
+\DoxyCodeLine{00545\ \ \ \ \ \ \ \ \ system(\textcolor{stringliteral}{"{}cls\ ||\ clear"{}});}
+\DoxyCodeLine{00546\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ switch\ case\ para\ receber\ opção\ do\ usuario}}
+\DoxyCodeLine{00547\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}\ (opcao)}
+\DoxyCodeLine{00548\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00549\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 1:}
+\DoxyCodeLine{00550\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{loja__eletronicos_8c_ae22d9c3570c1c575e0835e347301eb46}{cadastrarUsuario}}();\ \textcolor{comment}{//\ vai\ para\ função\ de\ cadastro\ de\ usuarios}}
+\DoxyCodeLine{00551\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00552\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 2:}
+\DoxyCodeLine{00553\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{loja__eletronicos_8c_adcfa6656662be613b1d7cbc8eb58ae7c}{Sistema}}();\ \textcolor{comment}{//\ vai\ para\ função\ principal\ do\ usuario}}
+\DoxyCodeLine{00554\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00555\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 3:\ \textcolor{comment}{//\ sai\ do\ sistema\ e\ encerra\ o\ programa}}
+\DoxyCodeLine{00556\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Saindo\ do\ Sistema"{}});}
+\DoxyCodeLine{00557\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ 3;\ i++)}
+\DoxyCodeLine{00558\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00559\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}."{}});}
+\DoxyCodeLine{00560\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fflush(stdout);}
+\DoxyCodeLine{00561\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ sleep(1);}
+\DoxyCodeLine{00562\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00563\ \ \ \ \ \ \ \ \ \ \ \ \ exit(1);\ \textcolor{comment}{//\ encerrar\ o\ programa}}
+\DoxyCodeLine{00564\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00565\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:\ \textcolor{comment}{//\ caso\ não\ seja\ digitada\ nenhuma\ opção\ válida}}
+\DoxyCodeLine{00566\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Porfavor,\ selecione\ uma\ opcao\ valida\(\backslash\)n"{}});}
+\DoxyCodeLine{00567\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Pressione\ enter\ para\ continuar\(\backslash\)n"{}});}
+\DoxyCodeLine{00568\ \ \ \ \ \ \ \ \ \ \ \ \ getchar();}
+\DoxyCodeLine{00569\ \ \ \ \ \ \ \ \ \ \ \ \ system(\textcolor{stringliteral}{"{}cls\ ||\ clear"{}});}
+\DoxyCodeLine{00570\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00571\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00572\ }
+\DoxyCodeLine{00573\ \ \ \ \ \}\ \textcolor{keywordflow}{while}\ (opcao\ !=\ 3);\ \textcolor{comment}{//\ o\ codigo\ se\ repete\ enquanto\ a\ opção\ 3\ "{}sair"{}\ não\ ter\ sido\ escolhida}}
+\DoxyCodeLine{00574\ }
+\DoxyCodeLine{00575\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;\ \textcolor{comment}{//\ return\ 0\ para\ encerramento\ do\ codigo\ main}}
+\DoxyCodeLine{00576\ \}}
+
+\end{DoxyCode}
+\Hypertarget{loja__eletronicos_8c_ac63d3f9787c743ef2c5e26d4ee94a927}\index{loja\_eletronicos.c@{loja\_eletronicos.c}!relatorioProduto@{relatorioProduto}}
+\index{relatorioProduto@{relatorioProduto}!loja\_eletronicos.c@{loja\_eletronicos.c}}
+\doxysubsubsection{\texorpdfstring{relatorioProduto()}{relatorioProduto()}}
+{\footnotesize\ttfamily \label{loja__eletronicos_8c_ac63d3f9787c743ef2c5e26d4ee94a927} 
+void relatorio\+Produto (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+funcao retorna uma lista com todos os produtos ~\newline
+ 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00160\ \{}
+\DoxyCodeLine{00161\ \ \ \ \ \textcolor{keywordtype}{int}\ contador\ =\ 1;}
+\DoxyCodeLine{00162\ }
+\DoxyCodeLine{00163\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ \mbox{\hyperlink{loja__eletronicos_8c_a4533ea3a2d1c452fc858e74ee999ec2a}{LINHAS}};\ i++)}
+\DoxyCodeLine{00164\ \ \ \ \ \{}
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ \mbox{\hyperlink{loja__eletronicos_8c_a9db37cd75be1d2f3cfc2703673801cb0}{COLUNAS}};\ j++)}
+\DoxyCodeLine{00166\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (strlen(\mbox{\hyperlink{loja__eletronicos_8c_a5107cc7e1b66823cf8dd17851a23e583}{produtos}}[i][j].\textcolor{keywordtype}{id})\ >\ 0)}
+\DoxyCodeLine{00168\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00169\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}\(\backslash\)n\(\backslash\)nProduto\ \%d:\(\backslash\)n"{}},\ contador);}
+\DoxyCodeLine{00170\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}ID:\ \%s\(\backslash\)n"{}},\ \mbox{\hyperlink{loja__eletronicos_8c_a5107cc7e1b66823cf8dd17851a23e583}{produtos}}[i][j].\textcolor{keywordtype}{id});}
+\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Nome:\ \%s\(\backslash\)n"{}},\ \mbox{\hyperlink{loja__eletronicos_8c_a5107cc7e1b66823cf8dd17851a23e583}{produtos}}[i][j].nome);}
+\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Status:\ \%s\(\backslash\)n"{}},\ \mbox{\hyperlink{loja__eletronicos_8c_a5107cc7e1b66823cf8dd17851a23e583}{produtos}}[i][j].status);}
+\DoxyCodeLine{00173\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}\(\backslash\)n"{}});}
+\DoxyCodeLine{00174\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ contador++;}
+\DoxyCodeLine{00175\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00176\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00177\ \ \ \ \ \}}
+\DoxyCodeLine{00178\ \ \ \ \ \textcolor{keywordflow}{if}\ (contador\ ==\ 1)}
+\DoxyCodeLine{00179\ \ \ \ \ \{}
+\DoxyCodeLine{00180\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Nenhum\ produto\ cadastrado.\(\backslash\)n"{}});}
+\DoxyCodeLine{00181\ \ \ \ \ \}}
+\DoxyCodeLine{00182\ \}}
+
+\end{DoxyCode}
+\Hypertarget{loja__eletronicos_8c_adcfa6656662be613b1d7cbc8eb58ae7c}\index{loja\_eletronicos.c@{loja\_eletronicos.c}!Sistema@{Sistema}}
+\index{Sistema@{Sistema}!loja\_eletronicos.c@{loja\_eletronicos.c}}
+\doxysubsubsection{\texorpdfstring{Sistema()}{Sistema()}}
+{\footnotesize\ttfamily \label{loja__eletronicos_8c_adcfa6656662be613b1d7cbc8eb58ae7c} 
+void Sistema (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+função para entrar no sistema da MDM Eletrônica 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00394\ \{}
+\DoxyCodeLine{00395\ \ \ \ \ \textcolor{keywordtype}{char}\ nome[\mbox{\hyperlink{loja__eletronicos_8c_a9507b8b6e808576cd3220d584c1f180b}{TAMANHO\_NOME}}];}
+\DoxyCodeLine{00396\ \ \ \ \ \textcolor{keywordtype}{char}\ senha[\mbox{\hyperlink{loja__eletronicos_8c_aec83cc5ac73b2bc5e472624b9e4be500}{TAMANHO\_SENHA}}];}
+\DoxyCodeLine{00397\ \ \ \ \ \textcolor{comment}{//armazena\ a\ opção\ a\ ser\ selecionada}}
+\DoxyCodeLine{00398\ \ \ \ \ \textcolor{keywordtype}{int}\ opcao;}
+\DoxyCodeLine{00399\ \ \ \ \ \textcolor{keywordtype}{char}\ cargo[\mbox{\hyperlink{loja__eletronicos_8c_a9507b8b6e808576cd3220d584c1f180b}{TAMANHO\_NOME}}];}
+\DoxyCodeLine{00400\ \ \ \ \ \textcolor{keywordflow}{do}\ \textcolor{comment}{//\ do\ while\ para\ continuidade\ da\ execução\ do\ código\ principal}}
+\DoxyCodeLine{00401\ \ \ \ \ \{}
+\DoxyCodeLine{00402\ \ \ \ \ \ \ \ \ system(\textcolor{stringliteral}{"{}cls\ ||\ clear"{}});}
+\DoxyCodeLine{00403\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ recebe\ o\ nome\ do\ usuario\ já\ criado\ no\ sistema}}
+\DoxyCodeLine{00404\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Digite\ o\ nome\ do\ usuario:\ "{}});}
+\DoxyCodeLine{00405\ \ \ \ \ \ \ \ \ scanf(\textcolor{stringliteral}{"{}\%s"{}},\ nome);}
+\DoxyCodeLine{00406\ \ \ \ \ \ \ \ \ getchar();}
+\DoxyCodeLine{00407\ }
+\DoxyCodeLine{00408\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ recebe\ a\ senha\ do\ usuario\ já\ criado\ no\ sistema}}
+\DoxyCodeLine{00409\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Digite\ a\ senha\ do\ usuario:\ "{}});}
+\DoxyCodeLine{00410\ \ \ \ \ \ \ \ \ scanf(\textcolor{stringliteral}{"{}\%s"{}},\ senha);}
+\DoxyCodeLine{00411\ \ \ \ \ \ \ \ \ getchar();}
+\DoxyCodeLine{00412\ \ \ \ \ \ \ \ \ system(\textcolor{stringliteral}{"{}cls\ ||\ clear"{}});}
+\DoxyCodeLine{00413\ }
+\DoxyCodeLine{00414\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ verifico\ se\ o\ nome\ e\ senha\ do\ usuario\ são\ válidos}}
+\DoxyCodeLine{00415\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ usuarioEncontrado\ =\ 0;}
+\DoxyCodeLine{00416\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ \mbox{\hyperlink{loja__eletronicos_8c_acab5f3c0c64cd6d366afcb394f4312eb}{quantidadeUsuarios}};\ i++)}
+\DoxyCodeLine{00417\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00418\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ uso\ strcmp\ para\ fazer\ a\ comparação\ do\ nome\ e\ senha\ digitado\ pelo\ usuario\ com\ os\ contidos\ no\ sistema}}
+\DoxyCodeLine{00419\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (strcmp(nome,\ \mbox{\hyperlink{loja__eletronicos_8c_a1d063905adcef00b45f3155285d0cba6}{usuarios}}[i].nome)\ ==\ 0\ \&\&\ strcmp(senha,\ \mbox{\hyperlink{loja__eletronicos_8c_a1d063905adcef00b45f3155285d0cba6}{usuarios}}[i].senha)\ ==\ 0)}
+\DoxyCodeLine{00420\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00421\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ strcpy(cargo,\ \mbox{\hyperlink{loja__eletronicos_8c_a1d063905adcef00b45f3155285d0cba6}{usuarios}}[i].cargo);}
+\DoxyCodeLine{00422\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Bem\ vindo\ ao\ sistema\ da\ MDM\ Eletronica\(\backslash\)n"{}});}
+\DoxyCodeLine{00423\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Usuario:\ \%s.\(\backslash\)n"{}},\ \mbox{\hyperlink{loja__eletronicos_8c_a1d063905adcef00b45f3155285d0cba6}{usuarios}}[i].nome);}
+\DoxyCodeLine{00424\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Cargo:\ \%s.\(\backslash\)n\(\backslash\)n"{}},\ \mbox{\hyperlink{loja__eletronicos_8c_a1d063905adcef00b45f3155285d0cba6}{usuarios}}[i].cargo);}
+\DoxyCodeLine{00425\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ usuarioEncontrado\ =\ 1;}
+\DoxyCodeLine{00426\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{do}}
+\DoxyCodeLine{00427\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00428\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ if\ para\ caso\ o\ cargo\ seja\ "{}Admin"{}}}
+\DoxyCodeLine{00429\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (strcmp(cargo,\ \textcolor{stringliteral}{"{}Admin"{}})\ ==\ 0)}
+\DoxyCodeLine{00430\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00431\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}1.Cadastro\ Produto\(\backslash\)n"{}});}
+\DoxyCodeLine{00432\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}2.Consultar\ Produto\(\backslash\)n"{}});}
+\DoxyCodeLine{00433\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}3.Atualizar\ Produto\(\backslash\)n"{}});}
+\DoxyCodeLine{00434\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}4.Excluir\ Produto\(\backslash\)n"{}});}
+\DoxyCodeLine{00435\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}5.Sair\(\backslash\)n"{}});}
+\DoxyCodeLine{00436\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Escolha\ uma\ opcao:\ "{}});}
+\DoxyCodeLine{00437\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00438\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ else\ if\ para\ caso\ o\ cargo\ seja\ "{}Vendedor"{}}}
+\DoxyCodeLine{00439\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (strcmp(cargo,\ \textcolor{stringliteral}{"{}Vendedor"{}})\ ==\ 0)}
+\DoxyCodeLine{00440\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00441\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}1.Consultar\ Produto\(\backslash\)n"{}});}
+\DoxyCodeLine{00442\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}2.Relatorio\ dos\ Produtos\(\backslash\)n"{}});}
+\DoxyCodeLine{00443\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}3.Sair\(\backslash\)n"{}});}
+\DoxyCodeLine{00444\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Escolha\ uma\ opcao:\ "{}});}
+\DoxyCodeLine{00445\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00446\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ recebe\ opção\ que\ o\ usuario\ digita}}
+\DoxyCodeLine{00447\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ scanf(\textcolor{stringliteral}{"{}\%d"{}},\ \&opcao);}
+\DoxyCodeLine{00448\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ getchar();}
+\DoxyCodeLine{00449\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ If\ para\ entrar\ no\ switch\ case\ do\ cargo\ Admin}}
+\DoxyCodeLine{00450\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (strcmp(cargo,\ \textcolor{stringliteral}{"{}Admin"{}})\ ==\ 0)}
+\DoxyCodeLine{00451\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00452\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}\ (opcao)}
+\DoxyCodeLine{00453\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00454\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 1:}
+\DoxyCodeLine{00455\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{loja__eletronicos_8c_a67a39725ab7392789a90663bbae39ce8}{cadastrarProduto}}();\ \textcolor{comment}{//\ vai\ para\ função\ de\ cadastro\ de\ produtos}}
+\DoxyCodeLine{00456\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00457\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 2:}
+\DoxyCodeLine{00458\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{loja__eletronicos_8c_acffdc8717b53fde038fdac53a3186643}{consultaId}}();\ \textcolor{comment}{//\ vai\ para\ função\ de\ consulta\ de\ produtos}}
+\DoxyCodeLine{00459\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00460\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 3:}
+\DoxyCodeLine{00461\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{loja__eletronicos_8c_a29554155b25d194765f47054daf27f52}{atualizarProduto}}();\ \textcolor{comment}{//\ vai\ para\ função\ de\ atualização\ de\ produtos}}
+\DoxyCodeLine{00462\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00463\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 4:}
+\DoxyCodeLine{00464\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{loja__eletronicos_8c_a68f3e3896fd5fcbfcba8584a3f8226d2}{excluirProduto}}();\ \textcolor{comment}{//\ vai\ para\ função\ de\ exclusão\ de\ produtos}}
+\DoxyCodeLine{00465\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00466\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 5:\ \textcolor{comment}{//\ sai\ do\ usuário\ Admin\ e\ volta\ para\ menu\ inicial}}
+\DoxyCodeLine{00467\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Saindo\ do\ Usuario\ Admin"{}});}
+\DoxyCodeLine{00468\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ 3;\ i++)}
+\DoxyCodeLine{00469\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00470\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}."{}});}
+\DoxyCodeLine{00471\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fflush(stdout);}
+\DoxyCodeLine{00472\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ sleep(1);}
+\DoxyCodeLine{00473\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00474\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ system(\textcolor{stringliteral}{"{}cls\ ||\ clear"{}});}
+\DoxyCodeLine{00475\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00476\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{00477\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Digite\ uma\ opção\ valida.\(\backslash\)n"{}});}
+\DoxyCodeLine{00478\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00479\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00480\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ else\ if\ para\ entrar\ no\ switch\ case\ do\ cargo\ Vendedor}}
+\DoxyCodeLine{00481\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (strcmp(cargo,\ \textcolor{stringliteral}{"{}Vendedor"{}})\ ==\ 0)}
+\DoxyCodeLine{00482\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00483\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}\ (opcao)}
+\DoxyCodeLine{00484\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00485\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 1:}
+\DoxyCodeLine{00486\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{loja__eletronicos_8c_acffdc8717b53fde038fdac53a3186643}{consultaId}}();\ \textcolor{comment}{//\ vai\ para\ função\ de\ consulta\ de\ produtos}}
+\DoxyCodeLine{00487\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00488\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 2:}
+\DoxyCodeLine{00489\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{loja__eletronicos_8c_ac63d3f9787c743ef2c5e26d4ee94a927}{relatorioProduto}}();\ \textcolor{comment}{//\ vai\ para\ função\ de\ relatorio\ que\ retorna\ todos\ os\ produtos\ no\ sistema}}
+\DoxyCodeLine{00490\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00491\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 3:\ \textcolor{comment}{//\ sai\ do\ usuário\ Vendedor\ e\ volta\ para\ menu\ inicial}}
+\DoxyCodeLine{00492\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Saindo\ do\ Usuario\ Vendedor"{}});}
+\DoxyCodeLine{00493\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ 3;\ i++)}
+\DoxyCodeLine{00494\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00495\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}."{}});}
+\DoxyCodeLine{00496\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fflush(stdout);}
+\DoxyCodeLine{00497\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ sleep(1);}
+\DoxyCodeLine{00498\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00499\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ system(\textcolor{stringliteral}{"{}cls\ ||\ clear"{}});}
+\DoxyCodeLine{00500\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00501\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{00502\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Digite\ uma\ opção\ valida.\(\backslash\)n"{}});}
+\DoxyCodeLine{00503\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00504\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00505\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ while\ que\ continua\ enquanto\ as\ opçoes\ de\ "{}sair"{}\ de\ ambos\ os\ carros\ não\ ter\ sido\ digitada}}
+\DoxyCodeLine{00506\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{while}\ ((strcmp(cargo,\ \textcolor{stringliteral}{"{}Admin"{}})\ ==\ 0\ \&\&\ opcao\ !=\ 5)\ ||\ (strcmp(cargo,\ \textcolor{stringliteral}{"{}Vendedor"{}})\ ==\ 0\ \&\&\ opcao\ !=\ 3));}
+\DoxyCodeLine{00507\ }
+\DoxyCodeLine{00508\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00509\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00510\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00511\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ caso\ o\ usuario\ nao\ tenha\ sido\ encontrado}}
+\DoxyCodeLine{00512\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!usuarioEncontrado)}
+\DoxyCodeLine{00513\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00514\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Erro!!!\ Usuario\ inexistente"{}});}
+\DoxyCodeLine{00515\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ 3;\ i++)}
+\DoxyCodeLine{00516\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00517\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}."{}});}
+\DoxyCodeLine{00518\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fflush(stdout);}
+\DoxyCodeLine{00519\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ sleep(1);}
+\DoxyCodeLine{00520\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00521\ \ \ \ \ \ \ \ \ \ \ \ \ system(\textcolor{stringliteral}{"{}cls\ ||\ clear"{}});}
+\DoxyCodeLine{00522\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00523\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00524\ }
+\DoxyCodeLine{00525\ \ \ \ \ \}\ \textcolor{keywordflow}{while}\ (1);}
+\DoxyCodeLine{00526\ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Variáveis}
+\Hypertarget{loja__eletronicos_8c_a5107cc7e1b66823cf8dd17851a23e583}\index{loja\_eletronicos.c@{loja\_eletronicos.c}!produtos@{produtos}}
+\index{produtos@{produtos}!loja\_eletronicos.c@{loja\_eletronicos.c}}
+\doxysubsubsection{\texorpdfstring{produtos}{produtos}}
+{\footnotesize\ttfamily \label{loja__eletronicos_8c_a5107cc7e1b66823cf8dd17851a23e583} 
+\mbox{\hyperlink{struct_produto}{Produto}} produtos\mbox{[}\mbox{\hyperlink{loja__eletronicos_8c_a4533ea3a2d1c452fc858e74ee999ec2a}{LINHAS}}\mbox{]}\mbox{[}\mbox{\hyperlink{loja__eletronicos_8c_a9db37cd75be1d2f3cfc2703673801cb0}{COLUNAS}}\mbox{]}}
+
+\Hypertarget{loja__eletronicos_8c_a455f97001e0b23b903200dba40bd7e86}\index{loja\_eletronicos.c@{loja\_eletronicos.c}!quantidadeProdutos@{quantidadeProdutos}}
+\index{quantidadeProdutos@{quantidadeProdutos}!loja\_eletronicos.c@{loja\_eletronicos.c}}
+\doxysubsubsection{\texorpdfstring{quantidadeProdutos}{quantidadeProdutos}}
+{\footnotesize\ttfamily \label{loja__eletronicos_8c_a455f97001e0b23b903200dba40bd7e86} 
+int quantidade\+Produtos = 0}
+
+\Hypertarget{loja__eletronicos_8c_acab5f3c0c64cd6d366afcb394f4312eb}\index{loja\_eletronicos.c@{loja\_eletronicos.c}!quantidadeUsuarios@{quantidadeUsuarios}}
+\index{quantidadeUsuarios@{quantidadeUsuarios}!loja\_eletronicos.c@{loja\_eletronicos.c}}
+\doxysubsubsection{\texorpdfstring{quantidadeUsuarios}{quantidadeUsuarios}}
+{\footnotesize\ttfamily \label{loja__eletronicos_8c_acab5f3c0c64cd6d366afcb394f4312eb} 
+int quantidade\+Usuarios = 0}
+
+\Hypertarget{loja__eletronicos_8c_a9ff26672e287ce96f1a86b525fa71e47}\index{loja\_eletronicos.c@{loja\_eletronicos.c}!SENHA\_CADASTRO@{SENHA\_CADASTRO}}
+\index{SENHA\_CADASTRO@{SENHA\_CADASTRO}!loja\_eletronicos.c@{loja\_eletronicos.c}}
+\doxysubsubsection{\texorpdfstring{SENHA\_CADASTRO}{SENHA\_CADASTRO}}
+{\footnotesize\ttfamily \label{loja__eletronicos_8c_a9ff26672e287ce96f1a86b525fa71e47} 
+const char SENHA\+\_\+\+CADASTRO\mbox{[}$\,$\mbox{]} = "{}2025"{}}
+
+\Hypertarget{loja__eletronicos_8c_a1d063905adcef00b45f3155285d0cba6}\index{loja\_eletronicos.c@{loja\_eletronicos.c}!usuarios@{usuarios}}
+\index{usuarios@{usuarios}!loja\_eletronicos.c@{loja\_eletronicos.c}}
+\doxysubsubsection{\texorpdfstring{usuarios}{usuarios}}
+{\footnotesize\ttfamily \label{loja__eletronicos_8c_a1d063905adcef00b45f3155285d0cba6} 
+\mbox{\hyperlink{struct_usuario}{Usuario}} usuarios\mbox{[}\mbox{\hyperlink{loja__eletronicos_8c_a0145df6bb6266e199e863ed5a9b0ac79}{MAX\+\_\+\+USUARIOS}}\mbox{]}}
+
