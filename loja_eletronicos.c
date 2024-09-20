@@ -118,7 +118,7 @@ void cadastrarUsuario()
     {
         // recebe a senha do usuario
         printf("Digite a senha (maximo 4 digitos): "); // recebe a senha do usuario
-        scanf("%s", &senha_usuario);
+        scanf("%s", senha_usuario);
         // remove o caractere de nova linha se estiver presente
         senha_usuario[strcspn(senha_usuario, "\n")] = '\0';
 
@@ -176,8 +176,28 @@ void relatorioProduto()
         }
     }
     if (contador == 1)
-    {
+    {   
+        int opcao = 0;
         printf("Nenhum produto cadastrado.\n");
+        printf("1 - Tentar novamente\n");
+        printf("2 - voltar ao menu anterior\n");
+        scanf("%d", &opcao);
+        
+        
+        switch (opcao) {
+            case 1:
+                return;
+                break;
+            case 2:
+                Sistema();
+                break;
+            default:
+                printf("Selecione uma opcao valida\n");
+                getchar();
+                return;
+                break;
+        }
+        
     }
 }
 /**
@@ -383,8 +403,27 @@ void consultaId()
     }
     // caso não seja encontrado o produto, retorna para o inicio da função
     if (!encontrar_id)
-    {
+    {   int opcao = 0; 
         printf("Produto não encontrado no sistema!\n\n");
+        printf("1 - Tentar novamente\n");
+        printf("2 - Voltar ao menu anterior\n");
+        printf("Selecione uma das opcoes acima: ");
+        scanf("%d", &opcao);
+        getchar();
+        
+        switch(opcao) {
+            case 1:
+              return;
+              break;
+            case 2:
+              consultaId();
+              break;
+            default:
+               printf("Porfavor selecione uma opcao valida\n");
+               getchar();
+               return;
+               break;
+        }
         consultaId();
     }
 }
