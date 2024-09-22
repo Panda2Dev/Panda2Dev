@@ -11,24 +11,24 @@
 #include <unistd.h> // biblioteca controle de tempo(sleep)
 
 // define tamanho das constantes
-#define MAX_USUARIOS 10 /**< Define o máximo de usuarios */
-#define TAMANHO_NOME 30 /**<Define o tamanho do nome */
-#define TAMANHO_SENHA 5/**< Define o tamanho máximo da senha */
-#define LINHAS 5 /**<Define tamanho das linhas */
-#define COLUNAS 3 /**< Define o tamanho das colunas */
-#define TAMANHO_ID 7 /**< Define o tamanho máximo do id */
+#define MAX_USUARIOS 10   /**< Define o máximo de usuarios */
+#define TAMANHO_NOME 30   /**<Define o tamanho do nome */
+#define TAMANHO_SENHA 5   /**< Define o tamanho máximo da senha */
+#define LINHAS 5          /**<Define tamanho das linhas */
+#define COLUNAS 3         /**< Define o tamanho das colunas */
+#define TAMANHO_ID 7      /**< Define o tamanho máximo do id */
 #define TAMANHO_STATUS 20 /**< Define o tamanho máximo do status */
 
 // senha para cadastro de novos usuários
 const char SENHA_CADASTRO[] = "2025";
 /**
  * @struct Produto
- * @brief Armazena informações sobre um produto*/ 
+ * @brief Armazena informações sobre um produto*/
 typedef struct
 {
-    char id[TAMANHO_ID];  /**<Id do produto. */
-    char nome[TAMANHO_NOME];/**<Nome do produto. */
-    char status[TAMANHO_STATUS];/**<Status do produto. */
+    char id[TAMANHO_ID];         /**<Id do produto. */
+    char nome[TAMANHO_NOME];     /**<Nome do produto. */
+    char status[TAMANHO_STATUS]; /**<Status do produto. */
 } Produto;
 
 /**
@@ -37,9 +37,9 @@ typedef struct
  */
 typedef struct
 {
-    char nome[TAMANHO_NOME];/**<Nome do usuario. */
-    char cargo[TAMANHO_NOME];/**<Cargo do usuario. */
-    char senha[TAMANHO_SENHA];/**<Senha do usuario. */
+    char nome[TAMANHO_NOME];   /**<Nome do usuario. */
+    char cargo[TAMANHO_NOME];  /**<Cargo do usuario. */
+    char senha[TAMANHO_SENHA]; /**<Senha do usuario. */
 } Usuario;
 
 // cria um array para armazena os produtos
@@ -50,14 +50,14 @@ int quantidadeProdutos = 0;        // contador qtd produtos
 Usuario usuarios[MAX_USUARIOS];
 int quantidadeUsuarios = 0; // contador qtd usuario
 
-/** 
+/**
  * @brief funcao para cadastar um novo usuario
  *  */
 void cadastrarUsuario()
 {
     // senha de cadastro
     char senha[TAMANHO_SENHA];
-    //armazena a opção selecionada
+    // armazena a opção selecionada
     int opcao = 0;
     do // laço do while para continuidade da funcao cadastrarUsuario
     {
@@ -108,7 +108,7 @@ void cadastrarUsuario()
     scanf("%s", usuarios[quantidadeUsuarios].cargo);
     getchar();
     // verifica se o cargo digitado eh invalido
-    if (strcmp(usuarios[quantidadeUsuarios].cargo, "Admin") != 0 && strcmp(usuarios[quantidadeUsuarios].cargo, "Vendedor") != 0)
+    if (strcasecmp(usuarios[quantidadeUsuarios].cargo, "Admin") != 0 && strcasecmp(usuarios[quantidadeUsuarios].cargo, "Vendedor") != 0)
     {
         printf("Cargo Invalido. Digite 'Admin' ou 'Vendedor' ");
         return cadastrarUsuario();
@@ -130,32 +130,30 @@ void cadastrarUsuario()
             getchar();
             getchar();
             system("cls || clear");
-            
         }
         else
-        {   //verifica se a quantidade usuarios ainda não excedeu o limite máximo
+        { // verifica se a quantidade usuarios ainda não excedeu o limite máximo
             if (quantidadeUsuarios < MAX_USUARIOS)
             {
                 strncpy(usuarios[quantidadeUsuarios].senha, senha_usuario, TAMANHO_SENHA);
                 usuarios[quantidadeUsuarios].senha[TAMANHO_SENHA - 1] = '\0'; // Garante que a string estah terminada
                 quantidadeUsuarios++;                                         // incrementa a variavel em 1
-                printf("Usuario cadastrado com sucesso!\n"); //exibe mensagem de sucesso.
+                printf("Usuario cadastrado com sucesso!\n");                  // exibe mensagem de sucesso.
                 printf("Pressione 'enter' para continuar");
                 getchar();
                 getchar();
-                system("cls || clear");//limpa a tela
-                
+                system("cls || clear"); // limpa a tela
             }
             else
             {
                 printf("numero maximo de usuarios atingido");
             }
         }
-    } while (strlen(senha_usuario) > 4); //repete o loop enquanto a senha digitada for maior que 4
+    } while (strlen(senha_usuario) > 4); // repete o loop enquanto a senha digitada for maior que 4
 }
 
 /**
- * @brief funcao retorna uma lista com todos os produtos  */ 
+ * @brief funcao retorna uma lista com todos os produtos  */
 void relatorioProduto()
 {
     int contador = 1;
@@ -176,28 +174,28 @@ void relatorioProduto()
         }
     }
     if (contador == 1)
-    {   
+    {
         int opcao = 0;
         printf("Nenhum produto cadastrado.\n");
         printf("1 - Tentar novamente\n");
         printf("2 - voltar ao menu anterior\n");
+        printf("Escolha uma das opções acima: ");
         scanf("%d", &opcao);
-        
-        
-        switch (opcao) {
-            case 1:
-                return;
-                break;
-            case 2:
-                Sistema();
-                break;
-            default:
-                printf("Selecione uma opcao valida\n");
-                getchar();
-                return;
-                break;
+
+        switch (opcao)
+        {
+        case 1:
+            return;
+            break;
+        case 2:
+            Sistema();
+            break;
+        default:
+            printf("Selecione uma opcao valida\n");
+            getchar();
+            return;
+            break;
         }
-        
     }
 }
 /**
@@ -217,13 +215,13 @@ void cadastrarProduto()
     {
         char id_digitado[100];
         // recebe ID do produto
-        printf("Digite o ID do produto (6 digitos): ");
-        fgets(id_digitado, sizeof(id_digitado), stdin);
-        id_digitado[strcspn(id_digitado, "\n")] = 0; // ignora o "/n";
+        printf("Digite o ID do produto (OBS: o id precisa ter 6 digitos): ");
+        scanf("%s", id_digitado);
+        getchar();
         // verifica se o id digitado possui 6 digitos
         if (strlen(id_digitado) != 6)
         {
-            printf("ID invalido!Digite um ID com 6 digitos. Pressione Enter para continuar...");
+            printf("ID invalido!O ID precisa ter 6 digitos. Pressione Enter para tentar novamente...");
             getchar();
             system("cls || clear");
             continue; // volta ao inicio do loop para solicitar a entrada novamente
@@ -235,15 +233,71 @@ void cadastrarProduto()
             break; // interrompe o loop
         }
     }
-    // recebe nome do produto
-    printf("Digite o nome do produto: ");
-    fgets(produtos[linha][coluna].nome, TAMANHO_NOME, stdin);
-    produtos[linha][coluna].nome[strcspn(produtos[linha][coluna].nome, "\n")] = 0; // Remover o '\n' do final
 
-    // recebe status do produto
-    printf("Digite o status do produto: ");
-    fgets(produtos[linha][coluna].status, TAMANHO_STATUS, stdin);
-    produtos[linha][coluna].status[strcspn(produtos[linha][coluna].status, "\n")] = 0; // Remover o '\n' do final
+    do
+    {
+        // recebe nome do produto
+        printf("Digite o nome do produto: ");
+        fgets(produtos[linha][coluna].nome, TAMANHO_NOME, stdin);
+
+        produtos[linha][coluna].nome[strcspn(produtos[linha][coluna].nome, "\n")] = 0; // Remover o '\n' do final
+        if (strcmp(produtos[linha][coluna].nome, "") == 0)
+        {
+            int opcao; // armazena a opcao selecionada
+            printf("1 - Tentar novamente\n");
+            printf("2 - Voltar ao menu anterior\n");
+            printf("Selecione uma das opcoes acima: ");
+            scanf("%d", &opcao);
+            getchar();
+
+            switch (opcao)
+            {
+            case 1:
+                continue;
+                break;
+            case 2:
+                return;
+                break;
+            default:
+                printf("Selecione uma opcao valida!\n");
+                return;
+                break;
+            }
+        }
+
+    } while (strcmp(produtos[linha][coluna].nome, "") == 0); // se o nome estive fazio o loop é repetido
+
+    do
+    {
+        // recebe status do produto
+        printf("Digite o status do produto: ");
+        fgets(produtos[linha][coluna].status, TAMANHO_STATUS, stdin);
+        produtos[linha][coluna].status[strcspn(produtos[linha][coluna].status, "\n")] = 0; // Remover o '\n' do final
+
+        if (strcmp(produtos[linha][coluna].status, "") == 0)
+        {
+            int opcao; // armazena a opcao selecionada
+            printf("1 - Tentar novamente\n");
+            printf("2 - Voltar ao menu anterior\n");
+            printf("Selecione uma das opcoes acima\n");
+            scanf("%d", &opcao);
+
+            switch (opcao)
+            {
+            case 1:
+                continue;
+                break;
+            case 2:
+                return;
+                break;
+            default:
+                printf("Selecione uma opcao valida!\n");
+                return;
+                break;
+            }
+        }
+    } while (strcmp(produtos[linha][coluna].status, "") == 0);
+
     // aumenta qtd de produtos
     quantidadeProdutos++;
     printf("\nProduto cadastrado com sucesso!\n");
@@ -252,7 +306,8 @@ void cadastrarProduto()
     system("cls || clear");
 }
 /**
- * @brief  função para fazer a exclusão de produtos*/ 
+ * @brief  função para fazer a exclusão de produtos
+ * */
 void excluirProduto()
 {
     char id_excluir[TAMANHO_ID];
@@ -290,12 +345,12 @@ void excluirProduto()
     // caso não seja encontrado o id
     if (!encontrar_id)
     {
-        printf("Produto não encontrado no sistema!\n\n");
+        printf("Produto nao encontrado no sistema!\n\n");
         excluirProduto(); // retorna para o começo
     }
 }
 /**
- * @brief  função para atualizar os produtos existentes no sistema*/ 
+ * @brief  função para atualizar os produtos existentes no sistema*/
 void atualizarProduto()
 {
     char id_atualizar[TAMANHO_ID];
@@ -358,12 +413,12 @@ void atualizarProduto()
     // caso não seja encontrado o produto, retorna para o inicio da função
     if (!encontrar_id)
     {
-        printf("Produto não encontrado no sistema!\n\n");
+        printf("Produto nao encontrado no sistema!\n\n");
         atualizarProduto();
     }
 }
 /**
- * @brief função para consultar os IDs de produto contidos no sistema */ 
+ * @brief função para consultar os IDs de produto contidos no sistema */
 void consultaId()
 {
     char id_consulta[TAMANHO_ID];
@@ -380,13 +435,7 @@ void consultaId()
             // com o id encontrado, realiza a consulta dos seus indices
             if (strcmp(produtos[i][j].id, id_consulta) == 0)
             {
-                printf("Procurando produto");
-                for (int i = 0; i < 3; i++)
-                {
-                    printf(".");
-                    fflush(stdout);
-                    sleep(1);
-                }
+
                 printf("\nProduto encontrado\n");
                 printf("ID: %s\n", produtos[i][j].id);
                 printf("Nome: %s\n", produtos[i][j].nome);
@@ -403,37 +452,39 @@ void consultaId()
     }
     // caso não seja encontrado o produto, retorna para o inicio da função
     if (!encontrar_id)
-    {   int opcao = 0; 
-        printf("Produto não encontrado no sistema!\n\n");
+    {
+        int opcao = 0;
+        printf("Produto nao encontrado no sistema!\n\n");
         printf("1 - Tentar novamente\n");
         printf("2 - Voltar ao menu anterior\n");
         printf("Selecione uma das opcoes acima: ");
         scanf("%d", &opcao);
         getchar();
-        
-        switch(opcao) {
-            case 1:
-              return;
-              break;
-            case 2:
-              consultaId();
-              break;
-            default:
-               printf("Porfavor selecione uma opcao valida\n");
-               getchar();
-               return;
-               break;
+
+        switch (opcao)
+        {
+        case 1:
+            return;
+            break;
+        case 2:
+            Sistema();
+            break;
+        default:
+            printf("Porfavor selecione uma opcao valida\n");
+            getchar();
+            return;
+            break;
         }
         consultaId();
     }
 }
 /**
- * @brief  função para entrar no sistema da MDM Eletrônica */ 
+ * @brief  função para entrar no sistema da MDM Eletrônica */
 void Sistema()
 {
     char nome[TAMANHO_NOME];
     char senha[TAMANHO_SENHA];
-    //armazena a opção a ser selecionada
+    // armazena a opção a ser selecionada
     int opcao;
     char cargo[TAMANHO_NOME];
     do // do while para continuidade da execução do código principal
@@ -454,8 +505,8 @@ void Sistema()
         int usuarioEncontrado = 0;
         for (int i = 0; i < quantidadeUsuarios; i++)
         {
-            // uso strcmp para fazer a comparação do nome e senha digitado pelo usuario com os contidos no sistema
-            if (strcmp(nome, usuarios[i].nome) == 0 && strcmp(senha, usuarios[i].senha) == 0)
+            // uso strcasecmp para fazer a comparação do nome e  strcmp para senha digitado pelo usuario com os contidos no sistema
+            if (strcasecmp(nome, usuarios[i].nome) == 0 && strcmp(senha, usuarios[i].senha) == 0)
             {
                 strcpy(cargo, usuarios[i].cargo);
                 printf("Bem vindo ao sistema da MDM Eletronica\n");
@@ -465,17 +516,18 @@ void Sistema()
                 do
                 {
                     // if para caso o cargo seja "Admin"
-                    if (strcmp(cargo, "Admin") == 0)
+                    if (strcasecmp(cargo, "Admin") == 0)
                     {
                         printf("1.Cadastro Produto\n");
-                        printf("2.Consultar Produto\n");
-                        printf("3.Atualizar Produto\n");
-                        printf("4.Excluir Produto\n");
-                        printf("5.Sair\n");
+                        printf("2.Relatorio de Produtos\n");
+                        printf("3.Consultar Produto\n");
+                        printf("4.Atualizar Produto\n");
+                        printf("5.Excluir Produto\n");
+                        printf("6.Sair\n");
                         printf("Escolha uma opcao: ");
                     }
                     // else if para caso o cargo seja "Vendedor"
-                    else if (strcmp(cargo, "Vendedor") == 0)
+                    else if (strcasecmp(cargo, "Vendedor") == 0)
                     {
                         printf("1.Consultar Produto\n");
                         printf("2.Relatorio dos Produtos\n");
@@ -486,7 +538,7 @@ void Sistema()
                     scanf("%d", &opcao);
                     getchar();
                     // If para entrar no switch case do cargo Admin
-                    if (strcmp(cargo, "Admin") == 0)
+                    if (strcasecmp(cargo, "Admin") == 0)
                     {
                         switch (opcao)
                         {
@@ -494,30 +546,27 @@ void Sistema()
                             cadastrarProduto(); // vai para função de cadastro de produtos
                             break;
                         case 2:
-                            consultaId(); // vai para função de consulta de produtos
+                            relatorioProduto();
                             break;
                         case 3:
-                            atualizarProduto(); // vai para função de atualização de produtos
+                            consultaId(); // vai para função de consulta de produtos
                             break;
                         case 4:
+                            atualizarProduto(); // vai para função de atualização de produtos
+                            break;
+                        case 5:
                             excluirProduto(); // vai para função de exclusão de produtos
                             break;
-                        case 5: // sai do usuário Admin e volta para menu inicial
-                            printf("Saindo do Usuario Admin");
-                            for (int i = 0; i < 3; i++)
-                            {
-                                printf(".");
-                                fflush(stdout);
-                                sleep(1);
-                            }
+                        case 6: // sai do usuário Admin e volta para menu inicial
                             system("cls || clear");
+                            return; // volta ao menu anterior
                             break;
                         default:
                             printf("Digite uma opção valida.\n");
                         }
                     }
                     // else if para entrar no switch case do cargo Vendedor
-                    else if (strcmp(cargo, "Vendedor") == 0)
+                    else if (strcasecmp(cargo, "Vendedor") == 0)
                     {
                         switch (opcao)
                         {
@@ -542,7 +591,7 @@ void Sistema()
                         }
                     }
                     // while que continua enquanto as opçoes de "sair" de ambos os carros não ter sido digitada
-                } while ((strcmp(cargo, "Admin") == 0 && opcao != 5) || (strcmp(cargo, "Vendedor") == 0 && opcao != 3));
+                } while ((strcasecmp(cargo, "Admin") == 0 && opcao != 5) || (strcasecmp(cargo, "Vendedor") == 0 && opcao != 3));
 
                 return;
             }
