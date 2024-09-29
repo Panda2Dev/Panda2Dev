@@ -84,10 +84,14 @@ void cadastrarUsuario()
                 continue; // Recomeca o loop
                 break;
             case 2:
-                return; // retorna ao meno anterior
+                return; // retorna ao menu anterior
                 break;
             default:
                 printf("Opcao invalida! Tente novamente.\n");
+                printf("Pressione enter para continuar...");
+                getchar();
+                system("cls || clear");
+                continue;
                 break;
             }
         }
@@ -104,18 +108,18 @@ void cadastrarUsuario()
     printf("Digite o nome do usuario: ");
     scanf("%s", usuarios[quantidadeUsuarios].nome);
     // recebe o cargo do usuario
-    do 
+    do
     {
         printf("Digite o cargo do usuario (Admin ou Vendedor): ");
         scanf("%s", usuarios[quantidadeUsuarios].cargo);
         getchar();
         // verifica se cargo eh invalido e diz pra digitar novamente
-        if(strcasecmp(usuarios[quantidadeUsuarios].cargo, "Admin") != 0 && strcasecmp(usuarios[quantidadeUsuarios].cargo, "Vendedor") != 0)
+        if (strcasecmp(usuarios[quantidadeUsuarios].cargo, "Admin") != 0 && strcasecmp(usuarios[quantidadeUsuarios].cargo, "Vendedor") != 0)
         {
             printf("CARGO INVALIDO! Digite Admin ou Vendedor\n");
         }
     } while (strcasecmp(usuarios[quantidadeUsuarios].cargo, "Admin") != 0 && strcasecmp(usuarios[quantidadeUsuarios].cargo, "Vendedor") != 0);
-    
+
     char senha_usuario[TAMANHO_SENHA];
     do
     {
@@ -142,7 +146,7 @@ void cadastrarUsuario()
                 usuarios[quantidadeUsuarios].senha[TAMANHO_SENHA - 1] = '\0'; // Garante que a string estah terminada
                 quantidadeUsuarios++;                                         // incrementa a variavel em 1
                 printf("Usuario cadastrado com sucesso!\n");                  // exibe mensagem de sucesso.
-                printf("Pressione 'enter' para continuar");
+                printf("Pressione 'enter' para continuar...");
                 getchar();
                 system("cls || clear"); // limpa a tela
             }
@@ -178,7 +182,7 @@ void relatorioProduto()
     if (contador == 1)
     {
         printf("Nenhum produto cadastrado.\n");
-        printf("Pressione 'enter' para continuar");
+        printf("Pressione 'enter' para continuar...");
         getchar();
         system("cls || clear"); // limpa a tela
     }
@@ -250,7 +254,7 @@ void cadastrarProduto()
     // aumenta qtd de produtos
     quantidadeProdutos++;
     printf("\nProduto cadastrado com sucesso!\n");
-    printf("Pressione 'enter' para continuar \n");
+    printf("Pressione 'enter' para continuar...");
     getchar();
     system("cls || clear");
 }
@@ -294,26 +298,34 @@ void excluirProduto()
     // caso não seja encontrado o id
     if (!encontrar_id)
     {
-        int opcao = 0;
+        int opcao;
         printf("Produto nao encontrado no sistema!\n\n");
-        printf("1 - Tentar novamente\n");
-        printf("2 - Voltar ao menu anterior\n");
-        printf("Selecione uma das opcoes acima: ");
-        scanf("%d", &opcao);
-        getchar();
-
-        switch (opcao)
+        do
         {
-        case 1:
-            excluirProduto();
-            break;
-        case 2:
-            break;
-        default:
-            printf("Porfavor selecione uma opcao valida\n");
+            printf("1 - Tentar novamente\n");
+            printf("2 - Voltar ao menu anterior\n");
+            printf("Selecione uma das opcoes acima: ");
+            scanf("%d", &opcao);
             getchar();
-            break;
+            system("cls || clear");
+            switch (opcao)
+            {
+            case 1:
+                excluirProduto();
+                break;
+            case 2:
+                Sistema();
+                break;
+            default:
+                printf("Porfavor selecione uma opcao valida\n");
+                printf("Pressione enter para continuar...");
+                getchar();
+                system("cls || clear");
+                break;
+            }
         }
+
+        while ((opcao != 1) || (opcao != 2)); // se as opções forem diferentes de 1 ou 2 o loop é repetido
     }
 }
 /**
@@ -373,16 +385,16 @@ void atualizarProduto()
                     // recebe novo nome do produto
                     printf("Digite o nome do produto: ");
                     fgets(produtos[linha][coluna].nome, TAMANHO_NOME, stdin);
-            
+
                     produtos[linha][coluna].nome[strcspn(produtos[linha][coluna].nome, "\n")] = 0; // Remover o '\n' do final
                     // verifica se o nome eh nulo
                     if (strcmp(produtos[linha][coluna].nome, "") == 0)
                     {
                         printf("Nome do produto nao pode ser nulo! Digite um nome valido\n");
                     }
-            
+
                 } while (strcmp(produtos[linha][coluna].nome, "") == 0); // se o nome estive fazio o loop é repetido
-            
+
                 do
                 {
                     // recebe novo status do produto
@@ -395,9 +407,9 @@ void atualizarProduto()
                         printf("Status Invalido! Digite Ativo ou Pendente\n");
                     }
                 } while (strcasecmp(produtos[linha][coluna].status, "Ativo") != 0 && strcasecmp(produtos[linha][coluna].status, "Pendente") != 0);
-            
+
                 printf("\nProduto atualizado com sucesso!\n");
-                printf("Pressione 'enter' para continuar \n");
+                printf("Pressione 'enter' para continuar...");
                 getchar();
                 system("cls || clear");
             }
@@ -406,28 +418,34 @@ void atualizarProduto()
     // caso não seja encontrado o produto, retorna para o inicio da função
     if (!encontrar_id)
     {
-        int opcao = 0;
-        printf("Produto nao encontrado no sistema!\n\n");
-        printf("1 - Tentar novamente\n");
-        printf("2 - Voltar ao menu anterior\n");
-        printf("Selecione uma das opcoes acima: ");
-        scanf("%d", &opcao);
-        getchar();
-
-        switch (opcao)
+        int opcao;
+        do
         {
-        case 1:
-            atualizarProduto();
-            break;
-        case 2:
-            return;
-            break;
-        default:
-            printf("Porfavor selecione uma opcao valida\n");
+            printf("Produto nao encontrado no sistema!\n\n");
+            printf("1 - Tentar novamente\n");
+            printf("2 - Voltar ao menu anterior\n");
+            printf("Selecione uma das opcoes acima: ");
+            scanf("%d", &opcao);
             getchar();
-            return;
-            break;
-        }
+            system("cls || clear");
+
+            switch (opcao)
+            {
+            case 1:
+                atualizarProduto();
+                break;
+            case 2:
+                Sistema();
+                break;
+            default:
+                printf("Porfavor selecione uma opcao valida.\n");
+                printf("Pressione enter para continuar...");
+                system("cls || clear");
+                getchar();
+                continue;
+                break;
+            }
+        } while ((opcao != 1) || (opcao != 2));
     }
 }
 /**
@@ -456,7 +474,7 @@ void consultaId()
                 printf("\n");
                 encontrar_id = 1;
                 printf("Produto encontrado com sucesso!\n");
-                printf("Pressione 'enter' para continuar ");
+                printf("Pressione 'enter' para continuar... ");
                 getchar();
                 system("cls || clear");
                 break;
@@ -466,28 +484,33 @@ void consultaId()
     // caso não seja encontrado o produto, retorna para o inicio da função
     if (!encontrar_id)
     {
-        int opcao = 0;
+        int opcao;
         printf("Produto nao encontrado no sistema!\n\n");
-        printf("1 - Tentar novamente\n");
-        printf("2 - Voltar ao menu anterior\n");
-        printf("Selecione uma das opcoes acima: ");
-        scanf("%d", &opcao);
-        getchar();
-
-        switch (opcao)
+        do
         {
-        case 1:
-            consultaId();
-            break;
-        case 2:
-            return;
-            break;
-        default:
-            printf("Porfavor selecione uma opcao valida\n");
+            printf("1 - Tentar novamente\n");
+            printf("2 - Voltar ao menu anterior\n");
+            printf("Selecione uma das opcoes acima: ");
+            scanf("%d", &opcao);
             getchar();
-            return;
-            break;
-        }
+            system("cls || clear");
+
+            switch (opcao)
+            {
+            case 1:
+                consultaId();
+                break;
+            case 2:
+                Sistema(); // volta a menu de sistema
+                break;
+            default:
+                printf("Porfavor selecione uma opcao valida\n");
+                printf("Pressione Enter para continuar...");
+                getchar();
+                system("cls || clear");
+                break;
+            }
+        } while ((opcao != 1) || (opcao != 2));
     }
 }
 /**
@@ -571,7 +594,7 @@ void Sistema()
                             break;
                         case 6: // sai do usuário Admin e volta para menu inicial
                             system("cls || clear");
-                            return; // volta ao menu anterior
+                            main(); // volta ao menu inicial
                             break;
                         default:
                             printf("Digite uma opção valida.\n");
@@ -664,7 +687,7 @@ int main()
             break;
         default: // caso não seja digitada nenhuma opção válida
             printf("Porfavor, selecione uma opcao valida\n");
-            printf("Pressione enter para continuar\n");
+            printf("Pressione enter para continuar...");
             getchar();
             system("cls || clear");
             break;
