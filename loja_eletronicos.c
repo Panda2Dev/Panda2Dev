@@ -119,6 +119,9 @@ void cadastrarUsuario()
         if (strcasecmp(usuarios[quantidadeUsuarios].cargo, "Admin") != 0 && strcasecmp(usuarios[quantidadeUsuarios].cargo, "Vendedor") != 0)
         {
             printf("CARGO INVALIDO! Digite Admin ou Vendedor\n");
+            printf("Pressione enter para continuar");
+            getchar();
+            system("cls || clear");
         }
     } while (strcasecmp(usuarios[quantidadeUsuarios].cargo, "Admin") != 0 && strcasecmp(usuarios[quantidadeUsuarios].cargo, "Vendedor") != 0);
 
@@ -280,13 +283,6 @@ void excluirProduto()
             // com o id encontrado, realiza a exclusão
             if (strcmp(produtos[i][j].id, id_excluir) == 0)
             {
-                printf("Excluindo produto");
-                for (int i = 0; i < 3; i++)
-                {
-                    printf(".");
-                    fflush(stdout);
-                    sleep(1);
-                }
                 // limpa os valores que o id tinha armazenado no array
                 encontrar_id = 1;
                 produtos[i][j].id[0] = '\0';
@@ -328,7 +324,7 @@ void excluirProduto()
             }
         }
 
-        while ((opcao != 1) || (opcao != 2)); // se as opções forem diferentes de 1 ou 2 o loop é repetido
+        while ((opcao != 1) && (opcao != 2)); // se as opções forem diferentes de 1 ou 2 o loop é repetido
     }
 }
 /**
@@ -482,6 +478,7 @@ void consultaId()
                 getchar();
                 system("cls || clear");
                 break;
+    
             }
         }
     }
@@ -514,7 +511,7 @@ void consultaId()
                 system("cls || clear");
                 break;
             }
-        } while ((opcao != 1) || (opcao != 2));
+        } while ((opcao != 1) && (opcao != 2));
     }
 }
 /**
@@ -681,7 +678,7 @@ int main()
             break;
         case 3: // sai do sistema e encerra o programa
             printf("Saindo do Sistema");
-            for (int i = 0; i < 3; i++)
+            for (int i = 0; i < 2; i++)
             {
                 printf(".");
                 fflush(stdout);
