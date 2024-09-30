@@ -49,7 +49,9 @@ int quantidadeProdutos = 0;        // contador qtd produtos
 // cria um array para armazena os usuarios
 Usuario usuarios[MAX_USUARIOS];
 int quantidadeUsuarios = 0; // contador qtd usuario
-
+//prototipo das funcoes
+void Sistema(); 
+int main ();
 /**
  * @brief funcao para cadastar um novo usuario
  *  */
