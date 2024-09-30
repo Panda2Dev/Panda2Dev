@@ -135,8 +135,8 @@ void cadastrarUsuario()
         if (strlen(senha_usuario) > 4)
         {
             printf("Erro a senha tem mais de 4 digitos.\n");
-            printf("Pressione enter para continuar...");
             getchar();
+            printf("Pressione enter para continuar...");
             getchar();
             system("cls || clear");
         }
@@ -148,6 +148,7 @@ void cadastrarUsuario()
                 usuarios[quantidadeUsuarios].senha[TAMANHO_SENHA - 1] = '\0'; // Garante que a string estah terminada
                 quantidadeUsuarios++;                                         // incrementa a variavel em 1
                 printf("Usuario cadastrado com sucesso!\n");                  // exibe mensagem de sucesso.
+                getchar();
                 printf("Pressione 'enter' para continuar...");
                 getchar();
                 system("cls || clear"); // limpa a tela
@@ -442,8 +443,9 @@ void atualizarProduto()
             default:
                 printf("Porfavor selecione uma opcao valida.\n");
                 printf("Pressione enter para continuar...");
-                system("cls || clear");
                 getchar();
+                system("cls || clear");
+            
                 continue;
                 break;
             }
