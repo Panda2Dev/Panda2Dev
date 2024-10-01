@@ -93,7 +93,6 @@ void cadastrarUsuario()
                 printf("Pressione enter para continuar...");
                 getchar();
                 system("cls || clear");
-                continue;
                 break;
             }
         }
@@ -105,7 +104,7 @@ void cadastrarUsuario()
         printf("Limite maximo de usuarios atingido!\n");
         return;
     }
-
+    
     // recebe o nome do usuario
     printf("Digite o nome do usuario: ");
     scanf("%s", usuarios[quantidadeUsuarios].nome);
@@ -116,14 +115,14 @@ void cadastrarUsuario()
         scanf("%s", usuarios[quantidadeUsuarios].cargo);
         getchar();
         // verifica se cargo eh invalido e diz pra digitar novamente
-        if (strcasecmp(usuarios[quantidadeUsuarios].cargo, "Admin") != 0 && strcasecmp(usuarios[quantidadeUsuarios].cargo, "Vendedor") != 0)
+        if (strcasecmp(usuarios[quantidadeUsuarios].cargo, "Admin") != 0 && strcasecmp(usuarios[quantidadeUsuarios].cargo, "Vendedor") != 0) // continua enquanto admin ou vendedor não ser o cargo inserido
         {
             printf("CARGO INVALIDO! Digite Admin ou Vendedor\n");
             printf("Pressione enter para continuar");
             getchar();
             system("cls || clear");
         }
-    } while (strcasecmp(usuarios[quantidadeUsuarios].cargo, "Admin") != 0 && strcasecmp(usuarios[quantidadeUsuarios].cargo, "Vendedor") != 0);
+    } while (strcasecmp(usuarios[quantidadeUsuarios].cargo, "Admin") != 0 && strcasecmp(usuarios[quantidadeUsuarios].cargo, "Vendedor") != 0); // continua enquanto admin ou vendedor não ser o cargo inserido
 
     char senha_usuario[TAMANHO_SENHA];
     do
@@ -147,6 +146,14 @@ void cadastrarUsuario()
         { // verifica se a quantidade usuarios ainda não excedeu o limite máximo
             if (quantidadeUsuarios < MAX_USUARIOS)
             {
+                for (int i = 0; i < quantidadeUsuarios; i++) // verifica se o usuario já está cadastrado no sistema
+                {
+                    if (strcasecmp(usuarios[quantidadeUsuarios].nome, usuarios[i].nome) == 0 && strcmp(senha_usuario, usuarios[i].senha) == 0)
+                    {
+                        printf("Erro!!! Usuario Invalido\n");
+                        return;
+                    }
+                }
                 strncpy(usuarios[quantidadeUsuarios].senha, senha_usuario, TAMANHO_SENHA);
                 usuarios[quantidadeUsuarios].senha[TAMANHO_SENHA - 1] = '\0'; // Garante que a string estah terminada
                 quantidadeUsuarios++;                                         // incrementa a variavel em 1
@@ -169,7 +176,7 @@ void cadastrarUsuario()
 void relatorioProduto()
 {
     int contador = 1;
-
+    // procura os produtos no sistema
     for (int i = 0; i < LINHAS; i++)
     {
         for (int j = 0; j < COLUNAS; j++)
@@ -204,15 +211,26 @@ void cadastrarProduto()
         return;
     }
 
-    int linha = quantidadeProdutos / COLUNAS;
-    int coluna = quantidadeProdutos % COLUNAS;
+    int linha = quantidadeProdutos / COLUNAS; // declaro a variavel linha
+    int coluna = quantidadeProdutos % COLUNAS; // declaro a variavel coluna
+    char id_digitado[100]; // recebe ID do produto
     while (1)
-    {
-        char id_digitado[100];
-        // recebe ID do produto
+    {   // pede o id para o usuario
         printf("Digite o ID do produto (OBS: o id precisa ter 6 digitos): ");
         scanf("%s", id_digitado);
         getchar();
+        // verifica se o id já foi utilizado
+        for (int i = 0; i < LINHAS; i++) 
+        {
+            for (int j = 0; j < COLUNAS; j++) 
+            {
+                if (strcmp(id_digitado, produtos[i][j].id) == 0) 
+                {
+                printf("Erro!!! ID ja utilizado.\n");
+                return;
+                }
+            }
+        }
         // verifica se o id digitado possui 6 digitos
         if (strlen(id_digitado) != 6)
         {
@@ -228,7 +246,6 @@ void cadastrarProduto()
             break; // interrompe o loop
         }
     }
-
     do
     {
         // recebe nome do produto
@@ -251,11 +268,11 @@ void cadastrarProduto()
         fgets(produtos[linha][coluna].status, TAMANHO_STATUS, stdin);
         produtos[linha][coluna].status[strcspn(produtos[linha][coluna].status, "\n")] = 0; // Remover o '\n' do final
         // verifica se o status eh valido
-        if (strcasecmp(produtos[linha][coluna].status, "Ativo") != 0 && strcasecmp(produtos[linha][coluna].status, "Pendente") != 0)
+        if (strcasecmp(produtos[linha][coluna].status, "Ativo") != 0 && strcasecmp(produtos[linha][coluna].status, "Pendente") != 0) //verifica se status é diferente de Ativo ou Pendente
         {
             printf("Status Invalido! Digite Ativo ou Pendente\n");
         }
-    } while (strcasecmp(produtos[linha][coluna].status, "Ativo") != 0 && strcasecmp(produtos[linha][coluna].status, "Pendente") != 0);
+    } while (strcasecmp(produtos[linha][coluna].status, "Ativo") != 0 && strcasecmp(produtos[linha][coluna].status, "Pendente") != 0); //continua até status ser Ativo ou Pendente 
 
     // aumenta qtd de produtos
     quantidadeProdutos++;
@@ -297,23 +314,23 @@ void excluirProduto()
     // caso não seja encontrado o id
     if (!encontrar_id)
     {
-        int opcao;
+        int opcao; //declaro opção
         printf("Produto nao encontrado no sistema!\n\n");
         do
         {
             printf("1 - Tentar novamente\n");
             printf("2 - Voltar ao menu anterior\n");
             printf("Selecione uma das opcoes acima: ");
-            scanf("%d", &opcao);
+            scanf("%d", &opcao); //recebe opção
             getchar();
             system("cls || clear");
-            switch (opcao)
+            switch (opcao) 
             {
             case 1:
-                excluirProduto();
+                excluirProduto(); // tenta novamente
                 break;
             case 2:
-                Sistema();
+                Sistema(); // volta para o sistema
                 break;
             default:
                 printf("Porfavor selecione uma opcao valida\n");
@@ -431,21 +448,19 @@ void atualizarProduto()
             switch (opcao)
             {
             case 1:
-                atualizarProduto();
+                atualizarProduto(); // tenta atualizar novamente
                 break;
             case 2:
-                Sistema();
+                Sistema(); // volta para o sistema
                 break;
             default:
                 printf("Porfavor selecione uma opcao valida.\n");
                 printf("Pressione enter para continuar...");
                 getchar();
                 system("cls || clear");
-            
-                continue;
                 break;
             }
-        } while ((opcao != 1) || (opcao != 2));
+        } while ((opcao != 1) && (opcao != 2)); //continua enquanto for diferente da opção 1 e 2
     }
 }
 /**
@@ -511,7 +526,7 @@ void consultaId()
                 system("cls || clear");
                 break;
             }
-        } while ((opcao != 1) && (opcao != 2));
+        } while ((opcao != 1) && (opcao != 2)); //continua enquanto for diferente da opção 1 e 2
     }
 }
 /**
@@ -599,6 +614,13 @@ void Sistema()
                             break;
                         default:
                             printf("Digite uma opção valida.\n");
+                            for (int i = 0; i < 1; i++)
+                            {
+                                printf(".");
+                                fflush(stdout);
+                                sleep(1);
+                            }
+                            system("cls || clear");
                         }
                     }
                     // else if para entrar no switch case do cargo Vendedor
@@ -624,6 +646,13 @@ void Sistema()
                             break;
                         default:
                             printf("Digite uma opção valida.\n");
+                            for (int i = 0; i < 1; i++)
+                            {
+                                printf(".");
+                                fflush(stdout);
+                                sleep(1);
+                            }
+                            system("cls || clear");
                         }
                     }
                     // while que continua enquanto as opçoes de "sair" de ambos os carros não ter sido digitada
@@ -636,7 +665,7 @@ void Sistema()
         if (!usuarioEncontrado)
         {
             printf("Erro!!! Usuario inexistente");
-            for (int i = 0; i < 3; i++)
+            for (int i = 0; i < 1; i++)
             {
                 printf(".");
                 fflush(stdout);
@@ -678,7 +707,7 @@ int main()
             break;
         case 3: // sai do sistema e encerra o programa
             printf("Saindo do Sistema");
-            for (int i = 0; i < 2; i++)
+            for (int i = 0; i < 1; i++)
             {
                 printf(".");
                 fflush(stdout);
@@ -687,7 +716,7 @@ int main()
             exit(1); // encerrar o programa
             break;
         default: // caso não seja digitada nenhuma opção válida
-            printf("Porfavor, selecione uma opcao valida\n");
+            printf("Por favor, selecione uma opcao valida\n");
             printf("Pressione enter para continuar...");
             getchar();
             system("cls || clear");
